@@ -1,0 +1,70 @@
+% kian.sty
+% Copyright (C) 2016  Seiichiro HATA
+%
+% This program is free software: you can redistribute it and/or modify
+% it under the terms of the GNU General Public License as published by
+% the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+%
+% This program is distributed in the hope that it will be useful,
+% but WITHOUT ANY WARRANTY; without even the implied warranty of
+% MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+% GNU General Public License for more details.
+%
+% You should have received a copy of the GNU General Public License
+% along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+%\NeedsTeXFormat{pLaTeX2e}%
+\ProvidesPackage{kian}[2001/01/01 vX "X"]%
+
+%==============================================================================%
+% 元締め
+
+\newif\if@base\@basetrue%
+
+\newif\if@page\@pagefalse%
+\newif\if@sect\@sectfalse%
+\newif\if@titl\@titlfalse%
+\newif\if@opti\@optifalse%
+
+\newif\if@cert\@certfalse%
+\newif\if@evid\@evidfalse%
+
+\newif\if@calc\@calcfalse%
+\newif\if@math\@mathfalse%
+\newif\if@reff\@refffalse%
+\newif\if@priv\@privfalse%
+
+\DeclareOption{base}{\@basetrue}%
+
+\DeclareOption{page}{\@basefalse\@pagetrue}%
+\DeclareOption{sect}{\@basefalse\@secttrue}%
+\DeclareOption{titl}{\@basefalse\@titltrue}%
+\DeclareOption{opti}{\@basefalse\@optitrue}%
+
+\DeclareOption{cert}{\@basefalse\@certtrue}%
+\DeclareOption{evid}{\@basefalse\@evidtrue}%
+
+\DeclareOption{calc}{\@basefalse\@calctrue}%
+\DeclareOption{math}{\@basefalse\@mathtrue}%
+\DeclareOption{reff}{\@basefalse\@refftrue}%
+\DeclareOption{priv}{\@basefalse\@privtrue}%
+
+\ProcessOptions\relax%
+
+\if@base\usepackage{kian-page}\usepackage{kian-sect}\usepackage{kian-titl}\usepackage{kian-opti}\else\fi%
+
+\if@page\usepackage{kian-page}\else\fi%
+\if@sect\usepackage{kian-sect}\else\fi%
+\if@titl\usepackage{kian-titl}\else\fi%
+\if@opti\usepackage{kian-opti}\else\fi%
+
+\if@cert\usepackage{kian-cert}\else\fi%
+\if@evid\usepackage{kian-evid}\else\fi%
+
+\if@calc\usepackage{kian-calc}\else\fi%
+\if@math\usepackage{kian-math}\else\fi%
+\if@reff\usepackage{kian-reff}\else\fi%
+\if@priv\usepackage{kian-priv}\else\fi%
+
+\endinput%
