@@ -1,0 +1,3501 @@
+<h2>説明書</h2>
+
+<div class="date">
+  <time>2016-10-30</time> 作成<br>
+  <time>2016-11-11</time> 修正<br>
+  <time>2017-10-30</time> 修正<br>
+  <time>2018-11-02</time> 修正<br>
+  <time>2019-12-25</time> 修正<br>
+  <time>2020-06-13</time> 修正<br>
+  <time>2020-08-08</time> 修正<br>
+  <time>2021-09-04</time> 修正<br>
+  <time>2022-08-05</time> 修正<br>
+</div>
+
+<h3 id="目次">目次</h3>
+<ul>
+  <li><a href="#注意事項">注意事項</a></li>
+  <ul>
+  </ul>
+  <li><a href="#TeX Liveのインストール">TeX Liveのインストール</a></li>
+  <ul>
+  </ul>
+  <li><a href="#kianマクロのインストール">kianマクロのインストール</a></li>
+  <ul>
+    <li><a href="#Windowsの場合"><code>Windowsの場合</code></a></li>
+    <li><a href="#Macintosh、FreeBSD、Linuxの場合"><code>Macintosh、FreeBSD、Linux（UNIX系OS）の場合</code></a></li>
+  </ul>
+  <li><a href="#kianマクロの読込み">kianマクロの読込み</a></li>
+  <ul>
+    <li><a href="#\documentclass"><code>\documentclass[オプション]{引数1}</code></a></li>
+    <li><a href="#\usepackage"><code>\usepackage[オプション]{引数1}</code></a></li>
+  </ul>
+  <li><a href="#ページの設定（kian-page.sty）">ページの設定（kian-page.sty）</a></li>
+  <ul>
+    <li><a href="#\papersize"><code>\papersize{引数1}</code></a></li>
+    <li><a href="#\narrowmargin"><code>\narrowmargin</code></a></li>
+    <li><a href="#\narrowhead"><code>\narrowhead</code></a></li>
+    <li><a href="#\kiansize"><code>\kiansize{引数1}</code></a></li>
+    <li><a href="#\tiny"><code>\tiny,scriptsize,footnotesize,small</code></a></li>
+    <li><a href="#\normalsize"><code>\normalsize</code></a></li>
+    <li><a href="#\large"><code>\large,Large,LARGE,huge,Huge</code></a></li>
+    <li><a href="#\pagestyle"><code>\pagestyle{引数1}</code></a></li>
+    <li><a href="#\thispagestyle"><code>\thispagestyle{引数1}</code></a></li>
+    <li><a href="#\head"><code>\head{引数1}</code></a></li>
+    <li><a href="#\temphead"><code>\temphead{引数1}</code></a></li>
+    <li><a href="#\foot"><code>\foot{引数1}</code></a></li>
+    <li><a href="#\tempfoot"><code>\tempfoot{引数1}</code></a></li>
+    <li><a href="#\thefootpage"><code>\thefootpage</code></a></li>
+    <li><a href="#\thelastpage"><code>\thelastpage</code></a></li>
+    <li><a href="#\Stamppagenumber"><code>\Stamppagenumber</code></a></li>
+    <li><a href="#\stamppagenumber"><code>\stamppagenumber</code></a></li>
+    <li><a href="#\Dontstamppagenumber"><code>\Dontstamppagenumber</code></a></li>
+    <li><a href="#\dontstamppagenumber"><code>\dontstamppagenumber</code></a></li>
+    <li><a href="#\Stampendmark"><code>\Stampendmark</code></a></li>
+    <li><a href="#\stampendmark"><code>\stampendmark</code></a></li>
+    <li><a href="#\Dontstampendmark"><code>\Dontstampendmark</code></a></li>
+    <li><a href="#\dontstampendmark"><code>\dontstampendmark</code></a></li>
+    <li><a href="#\endmark"><code>\endmark{引数1}</code></a></li>
+    <li><a href="#\onepage"><code>\onepage[オプション]</code></a></li>
+    <li><a href="#\onepage*"><code>\onepage*</code></a></li>
+    <li><a href="#\hspaceonkian"><code>\hspaceonkian[オプション]{引数1},Hsp[オプション]{引数1}</code></a></li>
+    <li><a href="#\hspaceonkian*"><code>\hspaceonkian*[オプション]{引数1},Hsp*[オプション]{引数1}</code></a></li>
+    <li><a href="#~"><code>~</code></a></li>
+    <li><a href="#\vspaceonkian"><code>\vspaceonkian{引数1},Vsp{引数1}</code></a></li>
+    <li><a href="#\vspaceonkian*"><code>\vspaceonkian*{引数1},Vsp*{引数1}</code></a></li>
+    <li><a href="#\underlinehspaceonkian"><code>\underlinehspaceonkian[オプション]{引数1},uhs[オプション]{引数1}</code></a></li>
+    <li><a href="#\"><code>\ [オプション]</code></a></li>
+    <li><a href="#\"><code>\[オプション]</code></a></li>
+  </ul>
+  <li><a href="#セクションの設定（kian-sect.sty）">セクションの設定（kian-sect.sty）</a></li>
+  <ul>
+    <li><a href="#\chapterX"><code>\chapterX[オプション]{引数1},ChaX[オプション]{引数1}（X=[ABCDE]）</code></a></li>
+    <li><a href="#\sectionhlength"><code>\sectionhlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}</code></a></li>
+    <li><a href="#\downX"><code>\downX{引数1},DowX{引数1}</code></a></li>
+    <li><a href="#\downY"><code>\downY{引数1},DowY{引数1}</code></a></li>
+    <li><a href="#\downZ"><code>\downZ{引数1},DowZ{引数1}</code></a></li>
+    <li><a href="#\itemonkian"><code>\itemonkian[オプション]{引数1},Ite[オプション]{引数1}</code></a></li>
+    <li><a href="#\itemonkian*"><code>\itemonkian*[オプション]{引数1}{引数2},Ite*[オプション]{引数1}{引数2}</code></a></li>
+    <li><a href="#\c@sectionX"><code>\c@sectionX（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\separateX"><code>\separateX{引数1},SepX{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\separateX*"><code>\separateX*{引数1},SepX*{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\presectionXname"><code>\presectionXname（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\postsectionXname"><code>\postsectionXname（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\gluesectionXname"><code>\gluesectionXname（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\normalprintsectionX"><code>\normalprintsectionX{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\printsectionX"><code>\printsectionX{引数1},PriX{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\normalPrintsectionX"><code>\normalPrintsectionX{引数1}{引数2}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\PrintsectionX"><code>\PrintsectionX{引数1}{引数2},PRIX{引数1}{引数2}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\stateX"><code>\stateX,StaX（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\sectionX"><code>\sectionX[オプション]{引数1},SecX[オプション]{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\sectionX*"><code>\sectionX*[オプション]{引数1},SecX*[オプション]{引数1}（X=[ZABCDEFG]）</code></a></li>
+    <li><a href="#\tableofcontents"><code>\tableofcontents</code></a></li>
+    <li><a href="#\refdepth"><code>\refdepth{引数1}</code></a></li>
+    <li><a href="#\label"><code>\label{引数1}</code></a></li>
+    <li><a href="#\ref"><code>\ref{引数1}</code></a></li>
+  </ul>
+  <li><a href="#タイトルの設定（kian-titl.sty）">タイトルの設定（kian-titl.sty）</a></li>
+  <ul>
+    <li><a href="#\maketitle"><code>\maketitle[オプション]</code></a></li>
+    <li><a href="#\maketitlecontents"><code>\maketitlecontents{引数1}</code></a></li>
+    <li><a href="#\idcode"><code>\idcode[オプション]{引数1},Idc[オプション]{引数1}</code></a></li>
+    <li><a href="#\idcodes"><code>\idcodes{引数1},Idcs{引数1}</code></a></li>
+    <li><a href="#\idcodehlength"><code>\idcodehlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}{引数7}{引数8}{引数9}</code></a></li>
+    <li><a href="#\idcodevlength"><code>\idcodevlength{引数1}{引数2}{引数3}</code></a></li>
+    <li><a href="#\printidcode"><code>\printidcode</code></a></li>
+    <li><a href="#\title"><code>\title[オプション]{引数1},Tit[オプション]{引数1}</code></a></li>
+    <li><a href="#\titles"><code>\titles{引数1},Tits{引数1}</code></a></li>
+    <li><a href="#\titlehlength"><code>\titlehlength{引数1}</code></a></li>
+    <li><a href="#\titlevlength"><code>\titlevlength{引数1}{引数2}{引数3}</code></a></li>
+    <li><a href="#\printtitle"><code>\printtitle</code></a></li>
+    <li><a href="#\date"><code>\date[オプション]{引数1},Dat[オプション]{引数1}</code></a></li>
+    <li><a href="#\dates"><code>\dates{引数1},Dats{引数1}</code></a></li>
+    <li><a href="#\datehlength"><code>\datehlength{引数1}</code></a></li>
+    <li><a href="#\datevlength"><code>\datevlength{引数1}{引数2}{引数3}</code></a></li>
+    <li><a href="#\printdate"><code>\printdate</code></a></li>
+    <li><a href="#\receiver"><code>\receiver[オプション]{引数1},Rec[オプション]{引数1}</code></a></li>
+    <li><a href="#\receivers"><code>\receivers{引数1},Recs{引数1}</code></a></li>
+    <li><a href="#\receiverhlength"><code>\receiverhlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}{引数7}{引数8}</code></a></li>
+    <li><a href="#\receivervlength"><code>\receivervlength{引数1}{引数2}{引数3}</code></a></li>
+    <li><a href="#\printreceiver"><code>\printreceiver</code></a></li>
+    <li><a href="#\sender"><code>\sender[オプション]{引数1},Sen[オプション]{引数1}</code></a></li>
+    <li><a href="#\senders"><code>\senders{引数1},Sens{引数1}</code></a></li>
+    <li><a href="#\senderhlength"><code>\senderhlength{引数1}{引数2}{引数3}{引数4}</code></a></li>
+    <li><a href="#\sendervlength"><code>\sendervlength{引数1}{引数2}{引数3}{引数4}</code></a></li>
+    <li><a href="#\author"><code>\author</code></a></li>
+    <li><a href="#\printsender"><code>\printsender</code></a></li>
+    <li><a href="#\person"><code>\person[オプション]{引数1},Per[オプション]{引数1}</code></a></li>
+    <li><a href="#\idcodenumber"><code>\idcodenumber{引数1},Idn{引数1}</code></a></li>
+    <li><a href="#\subject"><code>\subject[オプション]{引数1},Sub[オプション]{引数1}</code></a></li>
+    <li><a href="#\Subject"><code>\Subject[オプション]{引数1},SUB[オプション]{引数1}</code></a></li>
+    <li><a href="#\today"><code>\today[オプション]</code></a></li>
+    <li><a href="#\today*"><code>\today*[オプション]</code></a></li>
+    <li><a href="#\arrangedate"><code>\arrangedate[オプション]{引数1},Ada[オプション]{引数1}</code></a></li>
+    <li><a href="#\arrangedate*"><code>\arrangedate*[オプション]{引数1},Ada*[オプション]{引数1}</code></a></li>
+    <li><a href="#\westerncalender"><code>\westerncalender</code></a></li>
+    <li><a href="#\japanesecalender"><code>\japanesecalender</code></a></li>
+    <li><a href="#\doublecalender"><code>\doublecalender</code></a></li>
+    <li><a href="#\blankvskip"><code>\blankvskip{引数1}</code></a></li>
+    <li><a href="#\senderstamp"><code>\senderstamp[オプション]</code></a></li>
+    <li><a href="#\name"><code>\name[オプション]{引数1},Nam[オプション]{引数1}</code></a></li>
+    <li><a href="#\Name"><code>\Name[オプション]{引数1},NAM[オプション]{引数1}</code></a></li>
+    <li><a href="#\minustodash"><code>\minustodash{引数1},Mtd{引数1}</code></a></li>
+    <li><a href="#\address"><code>\address[オプション]{引数1},Add[オプション]{引数1}</code></a></li>
+    <li><a href="#\zipnumber"><code>\zipnumber{引数1},Zip{引数1}</code></a></li>
+    <li><a href="#\telnumber"><code>\telnumber{引数1},Tel{引数1}</code></a></li>
+    <li><a href="#\faxnumber"><code>\faxnumber{引数1},Fax{引数1}</code></a></li>
+  </ul>
+  <li><a href="#オプションによる修正（kian-opti.sty）">オプションによる修正（kian-opti.sty）</a></li>
+  <ul>
+    <li><a href="#\textslbox"><code>\textslbox[オプション]{引数1}</code></a></li>
+    <li><a href="#\別紙"><code>\別紙</code></a></li>
+    <li><a href="#\西暦"><code>\西暦</code></a></li>
+    <li><a href="#\和暦"><code>\和暦</code></a></li>
+    <li><a href="#\両暦"><code>\両暦</code></a></li>
+  </ul>
+  <li><a href="#サンプルコード">サンプルコード</a></li>
+  <ul>
+    <li><a href="#陳述書">陳述書</a></li>
+    <li><a href="#判決">判決</a></li>
+    <li><a href="#示談書">示談書</a></li>
+    <li><a href="#計算書">計算書</a></li>
+    <li><a href="#起訴状">起訴状</a></li>
+    <li><a href="#申入書">申入書</a></li>
+    <li><a href="#訴状">訴状</a></li>
+  </ul>
+</ul>
+
+<h3 id="注意事項">注意事項</h3>
+<p>当面の間は、仕様を積極的に変更する予定ですので、ここに書かれている内容も変更になる場合があります。
+
+<h3 id="TeX Liveのインストール">TeX Liveのインストール</h3>
+<p>kianマクロは、TeX（pLaTeX又はupLaTeX）上で動くますので、TeXをインストールする必要があります。
+<p>TeXにはいくつかのディストリビューションがありますが、最近はTeX Liveが良いと思います。
+<p>TeX Liveのインストールは、<a href="https://texwiki.texjp.org/?TeX%20Live">TeX Live - TeX Wiki</a>を参考にしてください。
+
+<h3 id="kianマクロのインストール">kianマクロのインストール</h3>
+<p>ZIPファイルの中の「kian」を適切な場所に移動させ、必要であれば「mktexlsr」又は「texhash」を実行するだけです。
+
+<h4 id="Windowsの場合"><code>Windowsの場合</code></h4>
+<p>解凍したフォルダ内の「kian」フォルダを、適切なフォルダ（「C:\texlive\texmf-local\tex\platex」や「C:\w32tex\share\texmf-dist\tex\platex」等）に移動させ、必要であれば、コマンドプロンプトで「mktexlsr」又は「texhash」を実行してください。
+<p>TeX Liveをお使いの場合は、インストーラー「INSTALL-windows.dat」を用意しました。ただし、TeX Live 2015（Windows 10）環境でしかテストしておりませんので、ある程度の知識をお持ち方は、手動インストールを強くお勧めします。
+
+<h4 id="Macintosh、FreeBSD、Linuxの場合"><code>Macintosh、FreeBSD、Linux（UNIX系OS）の場合</code></h4>
+<p>解凍したディレクトリ内の「kian」ディレクトリを、適切なディレクトリ（「/usr/share/texlive/texmf-dist/tex/platex/」や「/usr/local/texlive/texmf-local/tex/latex/」等）に移動させ、必要であれば、ターミナルで「sudo mktexlsr」又は「sudo texhash」を実行してください。
+<p>手動インストールが困難な方のために、インストーラー「INSTALL-unixlike.sh」を用意しました。ただし、十分なテストができておりませんので、ある程度の知識をお持ち方は、手動インストールを強くお勧めします。また、TeXのディレクトリ構成がOSやディストリビューションによって、様々であるため、うまく機能しない可能性があります。
+
+<h3 id="kianマクロの読込み">kianマクロの読込み</h3>
+
+<h4 id="\documentclass"><code>\documentclass[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>文書クラスを指定するコマンドです。
+<p>このコマンドは、何も修正していません。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>a3paper</code></dt><dd>用紙サイズをA3に指定する。</dd>
+<dt><code>a4paper</code></dt><dd>用紙サイズをA4に指定する。（デフォルト）</dd>
+<dt><code>portrait</code></dt><dd>用紙を縦に使う。（デフォルト）</dd>
+<dt><code>landscape</code></dt><dd>用紙を横に使う。</dd>
+<dt><code>papersize</code></dt><dd>システムによっては用紙サイズの指定に必要かもしれません。</dd>
+<dt><code>10pt</code></dt><dd>文字サイズを10ポイントに指定する。（デフォルト）</dd>
+<dt><code>12pt</code></dt><dd>文字サイズを12ポイントに指定する。通常は指定してください。</dd>
+<dt><code>onecolumn</code></dt><dd>1段組にする。（デフォルト）</dd>
+<dt><code>twocolumn</code></dt><dd>2段組にする。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>特別な事情がなかれば、"jsarticle"を指定してください。"jsbook"、"jarticle"、"jreport"、"jbook"も指定できますが、十分なテストをしていません。
+<h5>使用例</h5>
+<pre>
+<code>
+% A4用紙を縦に使う。文字の基準は12ポイントを使う。
+\documentclass[a4paper,portrait,papersize,12pt]{jsarticle}
+<br>
+% A3用紙を横に使う。文字の基準は12ポイントを使う。2段組にする。
+\documentclass[a3paper,landscape,papersize,12pt,twocolumn]{jsarticle}
+</code>
+</pre>
+
+<h4 id="\usepackage"><code>\usepackage[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>パッケージを読み込むためのコマンドです。
+<p>このコマンドは、何も修正していません。
+<p>kianマクロを読み込むために必要です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>base</code></dt><dd>基本セット（"kian-page.sty"、"kian-sect.sty"、"kian-titl.sty"、"kian-opti.sty"）を読み込みます。（デフォルト）</dd>
+<dt><code>page</code></dt><dd>ページの設定（"kian-page.sty"）を読み込みます。</dd>
+<dt><code>sect</code></dt><dd>セクションの設定（"kian-sect.sty"）を読み込みます。</dd>
+<dt><code>titl</code></dt><dd>タイトルの設定（"kian-titl.sty"）を読み込みます。</dd>
+<dt><code>opti</code></dt><dd>オプション（"kian-opti.sty"）を読み込みます。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>"kian"を指定して、kianマクロを読み込んでください。
+<h5>使用例</h5>
+<pre>
+<code>
+% kianマクロの基本セットを読み込む。
+\usepackage{kian}
+<br>
+% kianマクロの基本セットを読み込む。
+\usepackage[base]{kian}
+<br>
+% kianマクロのページの設定（"kian-page.sty"）のみを読み込む。
+\usepackage[page]{kian}
+</code>
+</pre>
+
+<h3 id="ページの設定（kian-page.sty）">ページの設定（kian-page.sty）</h3>
+<p>用紙サイズを指定して、用紙の余白、ヘッダの内容、フッタの内容、文字の大きさなどを設定します。
+
+<h4 id="\papersize"><code>\papersize{引数1}</code></h4>
+<h5>機能</h5>
+<p>用紙サイズを指定するコマンドです。
+<p>プリアンブルで使用してください。
+<p>通常は、"<code>\documentclass</code>"のオプションで指定するので、あまり使うことはないと思います。
+<h5>引数1</h5>
+<p>
+<dl>
+<dt><code>a3paper</code></dt><dd>用紙サイズをA3に指定する。</dd>
+<dt><code>a4paper</code></dt><dd>用紙サイズをA4に指定する。（デフォルト）</dd>
+<dt><code>portrait</code></dt><dd>用紙を縦に使う。（デフォルト）</dd>
+<dt><code>landscape</code></dt><dd>用紙を横に使う。</dd>
+<dt><code>papersize</code></dt><dd>システムによっては用紙サイズの指定に必要かもしれません。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% A4用紙を縦に使う。
+\papersize{a4paper,portrait,papersize}
+<br>
+% A3用紙を横に使う。
+\papersize{a3paper,landscape,papersize}
+</code>
+</pre>
+
+<h4 id="\narrowmargin"><code>\narrowmargin</code></h4>
+<h5>機能</h5>
+<p>用紙の余白を狭くするコマンドです。
+<p>プリアンブルで使用してください。
+<p>標準の余白が広すぎる場合や、文書を1ページに収めたい場合などに使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 用紙の余白を狭くする。
+\narrowmargin
+</code>
+</pre>
+
+<h4 id="\narrowhead"><code>\narrowhead</code></h4>
+<h5>機能</h5>
+<p>用紙の上の余白を狭くするコマンドです。
+<p>プリアンブルで使用してください。
+<p>用紙の上の余白は、標準では広めですので、これを狭くする場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 用紙の上の余白を狭くする。
+\narrowhead
+</code>
+</pre>
+
+<h4 id="\kiansize"><code>\kiansize{引数1}</code></h4>
+<h5>機能</h5>
+<p>文字の標準サイズを変更するコマンドです。
+<p>通常は、"<code>\documentclass</code>"のオプションで指定するようにしてください。
+<p>文書クラスが対応していない標準サイズにする場合や、本文中で標準サイズを変更する場合など、特殊な場合に使います。
+<h5>引数1</h5>
+<p>文字サイズを数値で指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 標準文字サイズを11ポイント（小さめ）にする。
+\kiansize{11pt}
+<br>
+% 標準文字サイズを12ポイント（標準）にする。
+\kiansize{12pt}
+</code>
+</pre>
+
+<h4 id="\tiny"><code>\tiny,\scriptsize,\footnotesize,\small</code></h4>
+<h5>機能</h5>
+<p>文字の大きさを小さくするコマンドです。
+<p>使い方は、通常のTeXと同じです。
+<p>"<code>\tiny</code>"は、文字の大きさを標準サイズの50%に変更します。
+<p>"<code>\scriptsize</code>"は、文字の大きさを標準サイズの70%に変更します。
+<p>"<code>\footnotesize</code>"は、文字の大きさを標準サイズの80%に変更します。
+<p>"<code>\small</code>"は、文字の大きさを標準サイズの90%に変更します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文字の大きさを標準サイズの50%に変更します。
+\tiny
+<br>
+% 文字の大きさを標準サイズの70%に変更します。
+\scriptsize
+<br>
+% 文字の大きさを標準サイズの80%に変更します。
+\footnotesize
+<br>
+% 文字の大きさを標準サイズの90%に変更します。
+\small
+</code>
+</pre>
+
+<h4 id="\normalsize"><code>\normalsize</code></h4>
+<h5>機能</h5>
+<p>文字の大きさを標準サイズに戻すコマンドです。
+<p>使い方は、通常のTeXと同じです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文字の大きさを標準サイズに戻します。
+\normalsize
+</code>
+</pre>
+
+<h4 id="\large"><code>\large,\Large,\LARGE,\huge,\Huge</code></h4>
+<h5>機能</h5>
+<p>文字の大きさを大きくするコマンドです。
+<p>使い方は、通常のTeXと同じです。
+<p>"<code>\large</code>"は、文字の大きさを標準サイズの125%に変更します。
+<p>"<code>\Large</code>"は、文字の大きさを標準サイズの150%に変更します。
+<p>"<code>\LARGE</code>"は、文字の大きさを標準サイズの175%に変更します。
+<p>"<code>\huge</code>"は、文字の大きさを標準サイズの200%に変更します。
+<p>"<code>\Huge</code>"は、文字の大きさを標準サイズの225%に変更します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文字の大きさを標準サイズの125%に変更します。
+\large
+<br>
+% 文字の大きさを標準サイズの150%に変更します。
+\Large
+<br>
+% 文字の大きさを標準サイズの175%に変更します。
+\LARGE
+<br>
+% 文字の大きさを標準サイズの200%に変更します。
+\huge
+<br>
+% 文字の大きさを標準サイズの225%に変更します。
+\Huge
+</code>
+</pre>
+
+<h4 id="\pagestyle"><code>\pagestyle{引数1}</code></h4>
+<h5>機能</h5>
+<p>標準のページスタイル（ヘッダやフッタなどの設定）を指定するコマンドです。
+<p>このコマンドは、何も修正していません。
+<p>kianマクロでは、デフォルトで"<code>\pagestyle{kian}</code>"が設定され、kianマクロ流のページスタイルが指定されています。
+<p>標準のページスタイルをkianマクロ流のページスタイルから変更する場合に使います。
+<h5>引数1</h5>
+<p>ページスタイルの名前を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 以後、ヘッダやフッタを全く表示しない（kianマクロ流を使わない。）。
+\pagestyle{empty}
+<br>
+% kianマクロ流に戻す。
+\pagestyle{kian}
+</code>
+</pre>
+
+<h4 id="\thispagestyle"><code>\thispagestyle{引数1}</code></h4>
+<h5>機能</h5>
+<p>臨時のページスタイル（ヘッダやフッタなどの設定）を指定するコマンドです。
+<p>このコマンドは、何も修正していません。
+<p>一時的にページスタイルをkianマクロ流のページスタイルから変更する場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% このページだけヘッダやフッタを全く表示しない（kianマクロ流を使わない。）。
+\thispagestyle{empty}
+<br>
+% このページだけkianマクロ流にする。
+\thispagestyle{kian}
+</code>
+</pre>
+
+<h4 id="\head"><code>\head{引数1}</code></h4>
+<h5>機能</h5>
+<p>標準ヘッダの内容を指定するコマンドです。
+<h5>引数1</h5>
+<p>標準ヘッダの内容を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 全ページの左上に作成日を表示します。
+\head{{\today}\hfill}
+</code>
+</pre>
+
+<h4 id="\temphead"><code>\temphead{引数1}</code></h4>
+<h5>機能</h5>
+<p>臨時ヘッダの内容を指定するコマンドです。
+<p>指定したページだけ、標準ヘッダに代えて臨時ヘッダを表示します（標準ヘッダは表示しません。）。
+<h5>引数1</h5>
+<p>臨時ヘッダの内容を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 標準ヘッダに代えて、ページの右上に「別紙」と表示します。
+\temphead{\hfill{別紙}}
+</code>
+</pre>
+
+<h4 id="\foot"><code>\foot{引数1}</code></h4>
+<h5>機能</h5>
+<p>標準フッタの内容を変更するコマンドです。
+<p>デフォルトでは、中央に"<code>\thefootpage</code>"で指定された書式のページ番号を、最終ページの左端に"<code>\endmark</code>"を表示するように、設定されています。
+<h5>引数1</h5>
+<p>標準フッタの内容を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 全ページの左下に作成日を表示します（ページ番号の表示なし）。
+\foot{{\today}\hfill}
+</code>
+</pre>
+
+<h4 id="\tempfoot"><code>\tempfoot{引数1}</code></h4>
+<h5>機能</h5>
+<p>臨時フッタの内容を指定するコマンドです。
+<p>指定したページだけ、標準フッタに代えて臨時フッタを表示します（標準フッタは表示しません。）。
+<h5>引数1</h5>
+<p>臨時フッタの内容を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 標準フッタに代えて、ページの右下に「別紙」と表示します（ページ番号の表示なし）。
+\tempfoot{\hfill{別紙}}
+</code>
+</pre>
+
+<h4 id="\thefootpage"><code>\thefootpage</code></h4>
+<h5>機能</h5>
+<p>標準フッタのページ番号を表示するコマンドです。
+<p>デフォルトでは、数字だけを表示するように設定されています。
+<h5>使用例</h5>
+<pre>
+<code>
+% 標準フッタのページ番号の表示を「-- ローマ数字のページ番号 --」に変更する。
+\renewcommand{\thefootpage}{-- \Roman{page} --}
+<br>
+% 標準フッタのページ番号の表示を「ページ番号/全ページ数」に変更する。
+\renewcommand{\thefootpage}{\thepage/\thelastpage}
+</code>
+</pre>
+
+<h4 id="\thelastpage"><code>\thelastpage</code></h4>
+<h5>機能</h5>
+<p>最終ページのページ番号、すなわち全ページ数を表示するコマンドです。
+<p>標準フッタのページ番号を表示する書式などに使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 全ページ数を表示する。
+\thelastpage
+<br>
+% 標準フッタのページ番号の表示を「ページ番号/全ページ数」に変更する。
+\renewcommand{\thefootpage}{\thepage/\thelastpage}
+</code>
+</pre>
+
+<h4 id="\Stamppagenumber"><code>\Stamppagenumber</code></h4>
+<h5>機能</h5>
+<p>以後、ページのフッタ中央にページ番号を表示するコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 以後、ページのフッタ中央にページ番号を表示する
+\Stamppagenumber
+</code>
+</pre>
+
+<h4 id="\stamppagenumber"><code>\stamppagenumber</code></h4>
+<h5>機能</h5>
+<p>一時的にページのフッタ中央にページ番号を表示するコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 一時的にページのフッタ中央にページ番号を表示する
+\stamppagenumber
+</code>
+</pre>
+
+<h4 id="\Dontstamppagenumber"><code>\Dontstamppagenumber</code></h4>
+<h5>機能</h5>
+<p>以後、ページのフッタ中央にページ番号を表示させないコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 以後、ページのフッタ中央にページ番号を表示させない
+\dontstamppagenumber
+</code>
+</pre>
+
+<h4 id="\dontstamppagenumber"><code>\dontstamppagenumber</code></h4>
+<h5>機能</h5>
+<p>一時的にページのフッタ中央にページ番号を表示させないコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 一時的にページのフッタ中央にページ番号を表示させない
+\dontstamppagenumber
+</code>
+</pre>
+
+<h4 id="\Stampendmark"><code>\Stampendmark</code></h4>
+<h5>機能</h5>
+<p>最終ページのフッタ右端に終了マークを表示するコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 最終ページのフッタ右端に終了マークを表示する
+\stampendmark
+</code>
+</pre>
+
+<h4 id="\stampendmark"><code>\stampendmark</code></h4>
+<h5>機能</h5>
+<p>一時的にフッタ右端に終了マークを表示するコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 一時的にフッタ右端に終了マークを表示する
+\stampendmark
+</code>
+</pre>
+
+<h4 id="\Dontstampendmark"><code>\Dontstampendmark</code></h4>
+<h5>機能</h5>
+<p>最終ページのフッタ右端に終了マークを表示させないコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 一時的に最終ページのフッタ右端に終了マークを表示させない
+\dontstampendmark
+</code>
+</pre>
+
+<h4 id="\dontstampendmark"><code>\dontstampendmark</code></h4>
+<h5>機能</h5>
+<p>一時的にフッタ右端に終了マークを表示させないコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 一時的にフッタ右端に終了マークを表示させない
+\dontstampendmark
+</code>
+</pre>
+
+<h4 id="\endmark"><code>\endmark{引数1}</code></h4>
+<h5>機能</h5>
+<p>最終ページのフッタ右端に表示する終了マークを指定するコマンドです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 最終ページのフッタ右端に「以上」と表示する。
+\endmark{以上}
+</code>
+</pre>
+
+<h4 id="\onepage"><code>\onepage[オプション]</code></h4>
+<h5>機能</h5>
+<p>行間の幅とページのサイズを調整し、文書を1ページに収める努力をするコマンドです。
+<p>プリアンブルでのみ使用できます。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>0</code></dt><dd>行間を詰めますが、ページのサイズは変えない。（デフォルト）</dd>
+<dt><code>1</code></dt><dd>行間を詰め、ページのサイズを縦横に1文字分だけ広げる。</dd>
+<dt><code>2</code></dt><dd>行間を詰め、ページのサイズを縦横に2文字分だけ広げる。</dd>
+<dt><code>3</code></dt><dd>行間を詰め、ページのサイズを縦横に3文字分だけ広げる。</dd>
+<dt><code>4</code></dt><dd>行間を詰め、ページのサイズを縦横に4文字分だけ広げる。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 文書を1ページに収める努力をする（\onepage[0]と同じ）。
+\onepage
+<br>
+% 文書を1ページに収める努力をする。
+\onepage[2]
+</code>
+</pre>
+
+<h4 id="\onepage*"><code>\onepage*</code></h4>
+<h5>機能</h5>
+<p>行間の幅とページのサイズを調整し、文書を1ページに収める努力をするコマンドです。
+<p>"<code>\onepage[4]</code>"と同じです。
+<p>プリアンブルでのみ使用できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文書を1ページに収める努力をする（\onepage[4]と同じ）。
+\onepage*
+</code>
+</pre>
+
+<h4 id="\hspaceonkian"><code>\hspaceonkian[オプション]{引数1},\Hsp[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>水平方向の空白を入れるコマンドです。
+<p>行頭・行末では無視されます（無視というより、行頭・行末にならないように、TeXが調整している印象です。）。
+<p>オプションは微調整です。
+<p>"<code>\Hsp[オプション]{引数1}</code>"は、"<code>\hspaceonkian[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>-</code></dt><dd>"<code>\kanjiskip</code>"分だけ短くなります。</dd>
+<dt><code>=</code></dt><dd>"<code>\kanjiskip</code>"分の調整はしません。</dd>
+<dt><code>+</code></dt><dd>"<code>\kanjiskip</code>"分だけ長くなります。</dd>
+<dt><code>a</code></dt><dd>状況に応じて、"<code>\kanjiskip</code>"分の調整をします。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「山」と「川」の間を1文字分開ける。
+山\hspaceonkian{1}川
+<br>
+% 「山」と「川」の間を1文字分開ける。
+山\hspaceonkian[+]{1}川
+</code>
+</pre>
+
+<h4 id="\hspaceonkian*"><code>\hspaceonkian*[オプション]{引数1},\Hsp*[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>水平方向の空白を入れるコマンドです。
+<p>行頭・行末では無視されません。
+<p>オプションは微調整です。
+<p>"<code>\Hsp*[オプション]{引数1}</code>"は、"<code>\hspaceonkian*[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>-</code></dt><dd>"<code>\kanjiskip</code>"分だけ短くなります。</dd>
+<dt><code>=</code></dt><dd>"<code>\kanjiskip</code>"分の調整はしません。</dd>
+<dt><code>+</code></dt><dd>"<code>\kanjiskip</code>"分だけ長くなります。</dd>
+<dt><code>a</code></dt><dd>状況に応じて、"<code>\kanjiskip</code>"分の調整をします。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「山」と「川」の間を1文字分開ける。
+山\hspaceonkian*{1}川
+<br>
+% 「山」と「川」の間を1文字分開ける。
+山\hspaceonkian*[+]{1}川
+</code>
+</pre>
+
+<h4 id="~"><code>~</code></h4>
+<h5>機能</h5>
+<p>1文字分の空白を入れます。\kanjiskipは自動で調整します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「山」と「川」の間に空白を1文字入れる。
+山~川
+</code>
+</pre>
+
+<h4 id="\vspaceonkian"><code>\vspaceonkian{引数1},\Vsp{引数1}</code></h4>
+<h5>機能</h5>
+<p>垂直方向に空白を入れるコマンドです。
+<p>ページ頭・ページ末では無視されます。
+<p>"<code>\Vsp{引数1}</code>"は、"<code>\vspaceonkian{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>数値（少数も可）で行数を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 1行分、空白を入れる。
+\vspaceonkian{1}
+</code>
+</pre>
+
+<h4 id="\vspaceonkian*"><code>\vspaceonkian*{引数1},\Vsp*{引数1}</code></h4>
+<h5>機能</h5>
+<p>垂直方向に空白を入れるコマンドです。
+<p>ページ頭・ページ末では無視されます。
+<p>"<code>\Vsp*{引数1}</code>"は、"<code>\vspaceonkian*{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>数値（少数も可）で行数を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 1行分、空白を入れる。
+\vspaceonkian{1}
+</code>
+</pre>
+
+<h4 id="\underlinehspaceonkian"><code>\underlinehspaceonkian[オプション]{引数1},\uhs[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>水平方向の空白を下線付きで入れるコマンドです。
+<p>書込欄（署名欄等）を作る場合などに使います。
+<p>"<code>\uHsp[オプション]{引数1}</code>"は、"<code>\underlinehspaceonkian[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(文字列)</code></dt><dd>下線を引く文字列を指定します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 書込欄を15文字の幅で作る。
+\underlinehspaceonkian{15}
+<br>
+% 署名押印欄を15文字の幅で作る。
+\underlinehspaceonkian[氏名{\hfill}印]{15}
+</code>
+</pre>
+
+<h4 id="\"><code>\ [オプション]</code></h4>
+<h5>機能</h5>
+<p>全角空白を表示するコマンドです。
+<p>原稿に全角空白を直に使うと、半角空白2つと区別がつかなくなり、エラーの原因になるため、全角空白を直に使うべきではありません。その代わりに、このコマンドを使います。
+<p>このコマンドは、見た目を調整するのに便利なコマンドですが、作成したPDFで検索をかけた場合に、全角空白が邪魔をしてヒットしなくなるという欠点もあります。例えば、「山川」で検索をかけた場合、"<code>山\hspaceonkian{1}川</code>"はヒットしますが、"<code>山\ 川</code>"はヒットしません。
+<p>特別な事情がない限り、"<code>\hspaceonkian</code>"を使って空白を入れるべきで、このコマンドを使用すべきではありません。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>全角空白の文字数を整数で指定してください。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 「山」と「川」の間に全角空白を1文字入れる。
+山\ 川
+<br>
+% 「山」と「川」の間に全角空白を5文字入れる。
+山\ [5]川
+</code>
+</pre>
+
+<h4 id="\\"><code>\\[オプション]</code></h4>
+<h5>機能</h5>
+<p>強制改行するコマンドです。
+<p>使い方は、通常とTeXとほとんど同じですが、オプションに単なる数値を使えるように変えてあります。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(長さ)</code></dt><dd>その長さだけ、改行幅を修正します。</dd>
+<dt><code>(数値)</code></dt><dd>\baselineskipのその数値倍だけ、改行幅を修正します。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 行の途中で強制改行します。
+ここで\\改行します。
+<br>
+% 行の途中で強制改行し、1行分、改行幅を増やす。
+ここで\\[\baselineskip]改行します。
+<br>
+% 行の途中で強制改行し、2行分、改行幅を増やす。
+ここで\\[2]改行します。
+</code>
+</pre>
+
+<h3 id="セクションの設定（kian-sect.sty）">セクションの設定（kian-sect.sty）</h3>
+<p>LaTeXでは、通常、文章の階層として、"<code>\part</code>"（部）、"<code>\chapter</code>"（章）、"<code>\section</code>"（節）、"<code>\subsection</code>"（項）、"<code>\subsubsectin</code>"（目）を使いますが、kianマクロでは、"<code>\sectionZ</code>"（セクションZ）、"<code>\sectionA</code>"（セクションA）、"<code>\sectionB</code>"（セクションB）、"<code>\sectionC</code>"（セクションC）、"<code>\sectionD</code>"（セクションD）、"<code>\sectionE</code>"（セクションE）、"<code>\sectionF</code>"（セクションF）、"<code>\sectionG</code>"（セクションG）を使います。
+<p>その他のコマンドについても、順にZ,A,B,C,D,E,F,Gを付けて、文章の階層（セクションレベル）を区別しています。
+
+<h4 id="\chapterX"><code>\chapterX[オプション]{引数1},\ChaX[オプション]{引数1}（X=[ABCDE]）</code></h4>
+<h5>機能</h5>
+<p>第1編、第1章、第1節、第1款、第1目等を表示するコマンドです。
+<p>セクション（第1、1、⑴…）とは連動しません。
+<p>主に条文形式の文章を作成する場合に使います。
+<p>"<code>\ChaX{引数1}</code>"は、"<code>\chapterX{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>タイトルを指定してください。
+<h5>オプション</h5>
+<p>
+<dl>
+表示の形式を変えることができます。
+詳しくは"<code>\sectionX{引数1}</code>"のオプションを参考にしてください（一部は対応していないものもあります。）。
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 第1編を表示する。
+\chapterA{日本国}
+<br>
+% 第1章を表示する。
+\chapterB{東京都}
+<br>
+% 第1章を表示する。
+\chapterC{東京市}
+<br>
+% 第1款を表示する。
+\chapterD{東京町}
+<br>
+% 第1目を表示する。
+\chapterE{1丁目}
+</code>
+</pre>
+
+<h4 id="\sectionhlength"><code>\sectionhlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}</code></h4>
+<h5>機能</h5>
+<p>セクションの表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>段落全体の字下げ幅を文字数で指定します。空の場合は既存の設定を維持します。デフォルトは"<code>0</code>"です。
+<h5>引数2</h5>
+<p>セクション番号の表示幅を文字数で指定します。空の場合は既存の設定を維持します。"<code>-1</code>"を指定すると、実測値を使います。デフォルトは"<code>-1</code>"です。
+<h5>引数3</h5>
+<p>箇条書きの項目の字下げ幅を文字数で指定します。空の場合は既存の設定を維持します。デフォルトは"<code>1</code>"です。
+<h5>引数4</h5>
+<p>箇条書きの項目の幅を文字数で指定します。空の場合は既存の設定を維持します。デフォルトは"<code>8</code>"です。
+<h5>引数5</h5>
+<p>本文全体の字下げ幅を文字数で指定します。空の場合は既存の設定を維持します。デフォルトは"<code>0</code>"です。
+<h5>引数6</h5>
+<p>本文1行目の字下げ幅を文字数で指定します。\parindentを設定します。空の場合は既存の設定を維持します。デフォルトは"<code>1</code>"です。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションの表示に関係する横幅をデフォルトに戻す。
+\kian@sectionhlength{0}{-1}{1}{8}{0}{1}
+<br>
+% 箇条書きの項目の幅を10文字に設定する。
+\kian@sectionhlength{}{}{}{10}{}{}
+</code>
+</pre>
+
+<h4 id="\downX"><code>\downX{引数1},\DowX{引数1}</code></h4>
+<h5>機能</h5>
+<p>全体の字下げを設定します。
+<p>"<code>\kian@sectionhlength{引数1}{}{}{}{}{}</code>"と全く同じです。
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。"<code>d</code>"を指定すると、デフォルトの"<code>0</code>"に戻します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 全体の字下げを-1文字に設定する（1文字分だけ左から、文書を始めます。）。
+\downX{-1}
+<br>
+% 全体の字下げをデフォルトに戻す。
+\downX{d}
+</code>
+</pre>
+
+<h4 id="\downY"><code>\downY{引数1},\DowY{引数1}</code></h4>
+<h5>機能</h5>
+<p>箇条書き項目の幅を設定します。
+<p>"<code>\kian@sectionhlength{}{}{}{引数1}{}{}</code>"と全く同じです。
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。"<code>d</code>"を指定すると、デフォルトの"<code>8</code>"に戻します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 箇条書き項目の幅を8文字に設定する。
+\downY{8}
+<br>
+% 箇条書き項目の幅をデフォルトに戻す。
+\downY{d}
+</code>
+</pre>
+
+<h4 id="\downZ"><code>\downZ{引数1},\DowZ{引数1}</code></h4>
+<h5>機能</h5>
+<p>本文1行目の字下げ幅（"<code>\parindent</code>"）を設定します。
+<p>"<code>\kian@sectionhlength{}{}{}{}{}{引数1}</code>"と全く同じです。
+<h5>引数1</h5>
+<p>数値（少数も可）で文字数を指定してください。"<code>d</code>"を指定すると、デフォルトの"<code>1</code>"に戻します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 本文1行目の字下げ幅を2文字に設定する。
+\downZ{2}
+<br>
+% 本文1行目の字下げ幅をデフォルトに戻す。
+\downZ{d}
+</code>
+</pre>
+
+<h4 id="\itemonkian"><code>\itemonkian[オプション]{引数1},\Ite[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>項目付きで箇条書きにするコマンドです。
+<p>"<code>\Ite[オプション]{引数1}</code>"は、"<code>\itemonkian[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>（数値）</code></dt><dd>項目の均等割付け幅を数値（少数も可）で指定します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>箇条書き項目を指定します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 箇条書きにする。
+\itemonkian{山の名前}富士山、北岳、奥穂高岳…
+\itemonkian{川の名前}信濃川、利根川、石狩川…
+<br>
+% 項目の均等割付け幅を6文字にして、箇条書きにをする。
+\itemonkian[6]{山の名前}富士山、北岳、奥穂高岳…
+\itemonkian[6]{川の名前}信濃川、利根川、石狩川…
+</code>
+</pre>
+
+<h4 id="\itemonkian*"><code>\itemonkian*[オプション]{引数1}{引数2},\Ite*[オプション]{引数1}{引数2}</code></h4>
+<h5>機能</h5>
+<p>項目付きで箇条書きにし、内容を右寄せにするコマンドです。
+<p>"<code>\itemonkian[オプション]{引数1}</code>"とは、引数の数が違いますので、注意が必要です。
+<p>"<code>\Ite*[オプション]{引数1}{引数2}</code>"は、"<code>\itemonkian*[オプション]{引数1}{引数2}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値1)</code></dt><dd>項目の均等割付け幅を数値（少数も可）で指定します。</dd>
+<dt><code>(数値2)</code></dt><dd>箇条書きの内容を表示する幅を数値（少数も可）で指定します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>箇条書きの項目を指定します。
+<h5>引数2</h5>
+<p>箇条書きの内容を指定します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 内容を右寄せで箇条書きをする。
+\itemonkian*{ジャガイモ}{100円}
+\itemonkian*{ニンジン}{200円}
+<br>
+% 項目の均等割付け幅を6文字にして、
+% 内容を右寄せで箇条書きをする。
+\itemonkian*[6]{ジャガイモ}{100円}
+\itemonkian*[6]{ニンジン}{200円}
+<br>
+% 箇条書きの内容を表示する幅を4文字にして、
+% 内容を右寄せで箇条書きをする。
+\itemonkian*[,4]{ジャガイモ}{100円}
+\itemonkian*[,4]{ニンジン}{200円}
+<br>
+% 項目の均等割付け幅を6文字にし、
+% 箇条書きの内容を表示する幅を4文字にして、
+% 内容を右寄せで箇条書きをする。
+\itemonkian*[6,4]{ジャガイモ}{100円}
+\itemonkian*[6,4]{ニンジン}{200円}
+</code>
+</pre>
+
+<h4 id="\c@sectionX"><code>\c@sectionX（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号の値を記録するカウンターです。
+<p>これらのカウンターは、"<code>\sectionX</code>"により、自動的に値が設定されます。
+<p>文章の流れに逆らって値を設定したい場合は、"<code>\setcounter</code>"や"<code>\addtocounter</code>"を使って、値を変えることができます。その場合は、引数に"<code>sectionX</code>"を指定することになります（"<code>\c@</code>"は付けません。これは、LaTeXの仕様です。）。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのカウンターを"0"にする（次は"1"でセクションZが表示される）。
+\setcounter{sectionZ}{0}
+<br>
+% セクションレベルAのカウンターを"1"にする（次は"2"でセクションAが表示される）。
+\setcounter{sectionA}{1}
+<br>
+% セクションレベルBのカウンターを"2"にする（次は"3"でセクションBが表示される）。
+\setcounter{sectionB}{2}
+<br>
+% セクションレベルCのカウンターを"3"にする（次は"4"でセクションCが表示される）。
+\setcounter{sectionC}{3}
+<br>
+% セクションレベルZのカウンターを"4"にする（次は"5"でセクションDが表示される）。
+\setcounter{sectionD}{4}
+<br>
+% セクションレベルZのカウンターを"5"にする（次は"6"でセクションEが表示される）。
+\setcounter{sectionE}{5}
+<br>
+% セクションレベルZのカウンターを"6"にする（次は"7"でセクションFが表示される）。
+\setcounter{sectionF}{6}
+<br>
+% セクションレベルGのカウンターを"7"にする（次は"8"でセクションGが表示される）。
+\setcounter{sectionG}{7}
+<br>
+% セクションレベルZのカウンターを"10"だけ進める。
+\addtocounter{sectionZ}{10}
+<br>
+% セクションレベルAのカウンターを"11"だけ進める。
+\addtocounter{sectionA}{11}
+<br>
+% セクションレベルBのカウンターを"12"だけ進める。
+\addtocounter{sectionB}{12}
+<br>
+% セクションレベルCのカウンターを"13"だけ進める。
+\addtocounter{sectionC}{13}
+<br>
+% セクションレベルDのカウンターを"14"だけ進める。
+\addtocounter{sectionD}{14}
+<br>
+% セクションレベルEのカウンターを"15"だけ進める。
+\addtocounter{sectionE}{15}
+<br>
+% セクションレベルFのカウンターを"16"だけ進める。
+\addtocounter{sectionF}{16}
+<br>
+% セクションレベルGのカウンターを"17"だけ進める。
+\addtocounter{sectionG}{17}
+</code>
+</pre>
+
+<h4 id="\separateX"><code>\separateX{引数1},\SepX{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション（"<code>\sectionX{引数1}</code>"）の上に加える空白の幅を、<code>\baselineskip</code>単位で設定します。
+<p>デフォルトは、"<code>Z</code>"と"<code>A</code>"で"<code>1</code>"が、"<code>B</code>"では状況に応じて"<code>0</code>"又は"<code>1</code>"が、その他は"<code>0</code>"が設定されています。
+<p>"<code>\SepX{引数1}</code>"は、"<code>\separateX{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>空白の幅を指定します。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションZの上に加える空白の幅を1行にする。
+\separateZ{1}
+<br>
+% セクションAの上に加える空白の幅を1行にする。
+\separateA{1}
+<br>
+% セクションBの上に加える空白の幅を0.5行にする。
+\separateB{0.5}
+<br>
+% セクションCの上に加える空白の幅を0行にする。
+\separateC{0}
+<br>
+% セクションDの上に加える空白の幅を0行にする。
+\separateD{0}
+<br>
+% セクションEの上に加える空白の幅を0行にする。
+\separateE{0}
+<br>
+% セクションFの上に加える空白の幅を0行にする。
+\separateF{0}
+<br>
+% セクションGの上に加える空白の幅を0行にする。
+\separateG{0}
+</code>
+</pre>
+
+<h4 id="\separateX*"><code>\separateX*{引数1},\SepX*{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>箇条書きセクション（"<code>\sectionX*{引数1}</code>"）の上に加える空白の幅を、<code>\baselineskip</code>単位で設定します。
+<p>デフォルトは、"<code>Z</code>"で"<code>1</code>"が、その他は"<code>0</code>"が設定されています。
+<p>"<code>\SepX*{引数1}</code>"は、"<code>\separateX*{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>空白の幅を指定します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 箇条書きセクションZの上に加える空白の幅を1行にする。
+\separateZ*{1}
+<br>
+% 箇条書きセクションAの上に加える空白の幅を1行にする。
+\separateA*{0}
+<br>
+% 箇条書きセクションBの上に加える空白の幅を0.5行にする。
+\separateB*{0}
+<br>
+% 箇条書きセクションCの上に加える空白の幅を0行にする。
+\separateC*{0}
+<br>
+% 箇条書きセクションDの上に加える空白の幅を0行にする。
+\separateD*{0}
+<br>
+% 箇条書きセクションEの上に加える空白の幅を0行にする。
+\separateE*{0}
+<br>
+% 箇条書きセクションFの上に加える空白の幅を0行にする。
+\separateF*{0}
+<br>
+% 箇条書きセクションGの上に加える空白の幅を0行にする。
+\separateG*{0}
+</code>
+</pre>
+
+<h4 id="\presectionXname"><code>\presectionXname（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号の前の修飾子を保持しています。
+<p>デフォルトは、"<code>\presectionAname</code>"が「第」で、その他は空です。
+<p>"<code>\renewcommand</code>"で変更できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクション番号の前の修飾子を「第」にする。
+\renewcommand{\presectionZname}{第}
+<br>
+% セクションレベルAのセクション番号の前の修飾子を「No.」にする。
+\renewcommand{\presectionAname}{No.}
+<br>
+% セクションレベルBのセクション番号の前の修飾子を「Ver.」にする。
+\renewcommand{\presectionBname}{Ver.}
+<br>
+% セクションレベルCのセクション番号の前の修飾子を空にする。
+\renewcommand{\presectionCname}{}
+<br>
+% セクションレベルDのセクション番号の前の修飾子を空にする。
+\renewcommand{\presectionDname}{}
+<br>
+% セクションレベルEのセクション番号の前の修飾子を空にする。
+\renewcommand{\presectionEname}{}
+<br>
+% セクションレベルFのセクション番号の前の修飾子を空にする。
+\renewcommand{\presectionFname}{}
+<br>
+% セクションレベルGのセクション番号の前の修飾子を空にする。
+\renewcommand{\presectionGname}{}
+</code>
+</pre>
+
+<h4 id="\postsectionXname"><code>\postsectionXname（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号の後の修飾子を保持しています。
+<p>デフォルトは、すべて空です。
+<p>"<code>\renewcommand</code>"で変更できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクション番号の後の修飾子を「条」にする。
+\renewcommand{\postsectionZname}{条}
+<br>
+% セクションレベルAのセクション番号の後の修飾子を「項」にする。
+\renewcommand{\postsectionAname}{項}
+<br>
+% セクションレベルBのセクション番号の後の修飾子を「号」にする。
+\renewcommand{\postsectionBname}{号}
+<br>
+% セクションレベルCのセクション番号の後の修飾子を空にする。
+\renewcommand{\postsectionCname}{}
+<br>
+% セクションレベルDのセクション番号の後の修飾子を空にする。
+\renewcommand{\postsectionDname}{}
+<br>
+% セクションレベルEのセクション番号の後の修飾子を空にする。
+\renewcommand{\postsectionEname}{}
+<br>
+% セクションレベルFのセクション番号の後の修飾子を空にする。
+\renewcommand{\postsectionFname}{}
+<br>
+% セクションレベルGのセクション番号の後の修飾子を空にする。
+\renewcommand{\postsectionGname}{}
+</code>
+</pre>
+
+<h4 id="\gluesectionXname"><code>\gluesectionXname（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号が続いた場合、両者の間に挿入される文字を保持しています。
+<p>デフォルトは、"<code>\gluesectionAname</code>"が「の」で（セクションAの「第1」とセクションBの「1」が重なった場合に、「第11」となるのを防止し、「第1の1」とするためです。）、その他は空です。
+<p>"<code>\renewcommand</code>"で変更できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルGのセクション番号と
+% セクションレベルAのセクション番号の間の文字を
+% 「の」に設定する。
+\renewcommand{\gluesectionZname}{の}
+<br>
+% セクションレベルAのセクション番号と
+% セクションレベルBのセクション番号の間の文字を
+% 「．」に設定する。
+\renewcommand{\gluesectionAname}{．}
+<br>
+% セクションレベルBのセクション番号と
+% セクションレベルCのセクション番号の間の文字を
+% エンダッシュに設定する。
+\renewcommand{\gluesectionBname}{--}
+<br>
+% セクションレベルCのセクション番号と
+% セクションレベルDのセクション番号の間の文字を
+% 空に設定する。
+\renewcommand{\gluesectionCname}{}
+<br>
+% セクションレベルDのセクション番号と
+% セクションレベルEのセクション番号の間の文字を
+% 空に設定する。
+\renewcommand{\gluesectionDname}{}
+<br>
+% セクションレベルEのセクション番号と
+% セクションレベルFのセクション番号の間の文字を
+% 空に設定する。
+\renewcommand{\gluesectionEname}{}
+<br>
+% セクションレベルFのセクション番号と
+% セクションレベルGのセクション番号の間の文字を
+% 空に設定する。
+\renewcommand{\gluesectionFname}{}
+</code>
+</pre>
+
+<h4 id="\normalprintsectionX"><code>\normalprintsectionX{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>標準的なセクション番号を表示する命令です。
+<p>"<code>\printsectionX</code>"を一時的に変更した後、元に戻す際に使います。
+<h5>引数1</h5>
+<p>セクションの番号を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクション番号を標準に戻す。
+\renewcommand{\printsectionZ}[1]{\normalprintsectionZ{#1}}
+<br>
+% セクションレベルAのセクション番号を標準に戻す。
+\renewcommand{\printsectionA}[1]{\normalprintsectionA{#1}}
+<br>
+% セクションレベルBのセクション番号を標準に戻す。
+\renewcommand{\printsectionB}[1]{\normalprintsectionB{#1}}
+<br>
+% セクションレベルCのセクション番号を標準に戻す。
+\renewcommand{\printsectionC}[1]{\normalprintsectionC{#1}}
+<br>
+% セクションレベルDのセクション番号を標準に戻す。
+\renewcommand{\printsectionD}[1]{\normalprintsectionD{#1}}
+<br>
+% セクションレベルEのセクション番号を標準に戻す。
+\renewcommand{\printsectionE}[1]{\normalprintsectionE{#1}}
+<br>
+% セクションレベルFのセクション番号を標準に戻す。
+\renewcommand{\printsectionF}[1]{\normalprintsectionF{#1}}
+<br>
+% セクションレベルGのセクション番号を標準に戻す。
+\renewcommand{\printsectionG}[1]{\normalprintsectionG{#1}}
+</code>
+</pre>
+
+<h4 id="\printsectionX"><code>\printsectionX{引数1},\PriX{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号を表示するコマンドです。
+<p>"<code>\PriX{引数1}</code>"は、"<code>\printsectionX{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>セクションの番号を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクション番号を"1"で表示する。
+\printsectionZ{1}
+<br>
+% セクションレベルAのセクション番号を"2"で表示する。
+\printsectionA{2}
+<br>
+% セクションレベルBのセクション番号を"3"で表示する。
+\printsectionB{3}
+<br>
+% セクションレベルCのセクション番号を"4"で表示する。
+\printsectionC{4}
+<br>
+% セクションレベルDのセクション番号を"5"で表示する。
+\printsectionD{5}
+<br>
+% セクションレベルEのセクション番号を"6"で表示する。
+\printsectionE{6}
+<br>
+% セクションレベルFのセクション番号を"7"で表示する。
+\printsectionF{7}
+<br>
+% セクションレベルGのセクション番号を"8"で表示する。
+\printsectionG{8}
+<br>
+% セクションレベルZのセクション番号を丸数字にする。
+\renewcommand{\printsectionZ}[1]{%
+  \presectionZname\textcircled{\scriptsize#1}\postsectionZname%
+}
+<br>
+% セクションレベルAのセクション番号を丸数字にする。
+\renewcommand{\printsectionA}[1]{%
+  \presectionAname\textcircled{\scriptsize#1}\postsectionAname%
+}
+<br>
+% セクションレベルBのセクション番号を丸数字にする。
+\renewcommand{\printsectionB}[1]{%
+  \presectionBname\textcircled{\scriptsize#1}\postsectionBname%
+}
+<br>
+% セクションレベルCのセクション番号を丸数字にする。
+\renewcommand{\printsectionC}[1]{%
+  \presectionCname\textcircled{\scriptsize#1}\postsectionCname%
+}
+<br>
+% セクションレベルDのセクション番号を丸数字にする。
+\renewcommand{\printsectionD}[1]{%
+  \presectionDname\textcircled{\scriptsize#1}\postsectionDname%
+}
+<br>
+% セクションレベルEのセクション番号を丸数字にする。
+\renewcommand{\printsectionE}[1]{%%
+  \presectionEname\textcircled{\scriptsize#1}\postsectionEname%
+}
+<br>
+% セクションレベルFのセクション番号を丸数字にする。
+\renewcommand{\printsectionF}[1]{%
+  \presectionFname\textcircled{\scriptsize#1}\postsectionFname%
+}
+<br>
+% セクションレベルGのセクション番号を丸数字にする。
+\renewcommand{\printsectionG}[1]{%
+  \presectionGname\textcircled{\scriptsize#1}\postsectionGname%
+}
+</code>
+</pre>
+
+<h4 id="\normalPrintsectionX"><code>\normalPrintsectionX{引数1}{引数2}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>タイトル付きセクション番号を表示するコマンドです。
+<h5>引数1</h5>
+<p>セクションの番号を指定してください。
+<h5>引数2</h5>
+<p>セクションのタイトルを指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionZ}[2]{\normalPrintsectionZ{#1}{#2}}
+<br>
+% セクションレベルAのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionA}[2]{\normalPrintsectionA{#1}{#2}}
+<br>
+% セクションレベルBのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionB}[2]{\normalPrintsectionB{#1}{#2}}
+<br>
+% セクションレベルCのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionC}[2]{\normalPrintsectionC{#1}{#2}}
+<br>
+% セクションレベルDのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionD}[2]{\normalPrintsectionD{#1}{#2}}
+<br>
+% セクションレベルEのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionE}[2]{\normalPrintsectionE{#1}{#2}}
+<br>
+% セクションレベルFのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionF}[2]{\normalPrintsectionF{#1}{#2}}
+<br>
+% セクションレベルGのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionG}[2]{\normalPrintsectionG{#1}{#2}}
+</code>
+</pre>
+
+<h4 id="\PrintsectionX"><code>\PrintsectionX{引数1}{引数2},\PRIX{引数1}{引数2}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクション番号とタイトルを表示するコマンドです。
+<p>"<code>\PRIX{引数1}{引数2}</code>"は、"<code>\PrintsectionX{引数1}{引数2}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>セクションの番号を指定してください。
+<h5>引数2</h5>
+<p>セクションのタイトルを指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionZ}[2]{\normalPrintsectionZ{#1}{#2}}
+<br>
+% セクションレベルAのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionA}[2]{\normalPrintsectionA{#1}{#2}}
+<br>
+% セクションレベルBのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionB}[2]{\normalPrintsectionB{#1}{#2}}
+<br>
+% セクションレベルCのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionC}[2]{\normalPrintsectionC{#1}{#2}}
+<br>
+% セクションレベルDのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionD}[2]{\normalPrintsectionD{#1}{#2}}
+<br>
+% セクションレベルEのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionE}[2]{\normalPrintsectionE{#1}{#2}}
+<br>
+% セクションレベルFのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionF}[2]{\normalPrintsectionF{#1}{#2}}
+<br>
+% セクションレベルGのタイトル付きセクション番号を標準に戻す。
+\renewcommand{\PrintsectionG}[2]{\normalPrintsectionG{#1}{#2}}
+</code>
+</pre>
+
+<h4 id="\stateX"><code>\stateX,\StaX（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクションレベル（[ZABCDEFG]）に合わせて、字下げを設定します。
+<p>"<code>\StaX</code>"は、"<code>\stateX</code>"の短縮形です。
+<h5>使用例</h5>
+<pre>
+<code>
+% 字下げをセクションレベルZに設定する。
+\stateZ
+<br>
+% 字下げをセクションレベルAに設定する。
+\stateA
+<br>
+% 字下げをセクションレベルBに設定する。
+\stateB
+<br>
+% 字下げをセクションレベルCに設定する。
+\stateC
+<br>
+% 字下げをセクションレベルDに設定する。
+\stateD
+<br>
+% 字下げをセクションレベルEに設定する。
+\stateE
+<br>
+% 字下げをセクションレベルFに設定する。
+\stateF
+<br>
+% 字下げをセクションレベルGに設定する。
+\stateG
+</code>
+</pre>
+
+<h4 id="\sectionX"><code>\sectionX[オプション]{引数1},\SecX[オプション]{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>セクションを表示するコマンドです。
+<p>kianマクロで最も重要なコマンドです。
+<p>"<code>\SecX{引数1}</code>"は、"<code>\sectionX{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>Arabic:セクション番号の表示を一時的に数字に変えます。
+<p>Kansuji:セクション番号の表示を一時的に漢数字に変えます。
+<p>Kata:セクション番号の表示を一時的にカタカナに変えます。
+<p>alph:セクション番号の表示を一時的に小文字アルファベットに変えます。
+<p>Alph:セクション番号の表示を一時的に大文字アルファベットに変えます。
+<p>roman:セクション番号の表示を一時的に小文字ローマ数字に変えます。
+<p>Roman:セクション番号の表示を一時的に大文字ローマ数字に変えます。
+<p>MaruArabic:セクション番号の表示を一時的に丸数字に変えます。
+<p>MaruKansuji:セクション番号の表示を一時的に丸漢数字に変えます。
+<p>MaruKata:セクション番号の表示を一時的に丸カタカナに変えます。
+<p>Marualph:セクション番号の表示を一時的に丸小文字アルファベットに変えます。
+<p>MaruAlph:セクション番号の表示を一時的に丸大文字アルファベットに変えます。
+<p>Maruroman:セクション番号の表示を一時的に丸小文字ローマ数字に変えます。
+<p>MaruRoman:セクション番号の表示を一時的に丸大文字ローマ数字に変えます。
+<p>KakkoArabic:セクション番号の表示を一時的に括弧数字に変えます。
+<p>KakkoKansuji:セクション番号の表示を一時的に括弧漢数字に変えます。
+<p>KakkoKata:セクション番号の表示を一時的に括弧カタカナに変えます。
+<p>Kakkoalph:セクション番号の表示を一時的に括弧小文字アルファベットに変えます。
+<p>KakkoAlph:セクション番号の表示を一時的に括弧大文字アルファベットに変えます。
+<p>Kakkoroman:セクション番号の表示を一時的に括弧小文字ローマ数字に変えます。
+<p>KakkoRoman:セクション番号の表示を一時的に括弧大文字ローマ数字に変えます。
+<p>kakkoArabic:セクション番号の表示を一時的に右括弧数字に変えます。
+<p>kakkoKansuji:セクション番号の表示を一時的に右括弧漢数字に変えます。
+<p>kakkoKata:セクション番号の表示を一時的に右括弧カタカナに変えます。
+<p>kakkoalph:セクション番号の表示を一時的に右括弧小文字アルファベットに変えます。
+<p>kakkoAlph:セクション番号の表示を一時的に右括弧大文字アルファベットに変えます。
+<p>kakkoroman:セクション番号の表示を一時的に右括弧小文字ローマ数字に変えます。
+<p>kakkoRoman:セクション番号の表示を一時的に右括弧大文字ローマ数字に変えます。
+<p>DotArabic:セクション番号の表示を一時的にドット数字に変えます。
+<p>DotKansuji:セクション番号の表示を一時的にドット漢数字に変えます。
+<p>DotKata:セクション番号の表示を一時的にドットカタカナに変えます。
+<p>Dotalph:セクション番号の表示を一時的にドット小文字アルファベットに変えます。
+<p>DotAlph:セクション番号の表示を一時的にドット大文字アルファベットに変えます。
+<p>Dotroman:セクション番号の表示を一時的にドット小文字ローマ数字に変えます。
+<p>DotRoman:セクション番号の表示を一時的にドット大文字ローマ数字に変えます。
+<p>ColonArabic:セクション番号の表示を一時的にコロン数字に変えます。
+<p>ColonKansuji:セクション番号の表示を一時的にコロン漢数字に変えます。
+<p>ColonKata:セクション番号の表示を一時的にコロンカタカナに変えます。
+<p>Colonalph:セクション番号の表示を一時的にコロン小文字アルファベットに変えます。
+<p>ColonAlph:セクション番号の表示を一時的にコロン大文字アルファベットに変えます。
+<p>Colonroman:セクション番号の表示を一時的にコロン小文字ローマ数字に変えます。
+<p>ColonRoman:セクション番号の表示を一時的にコロン大文字ローマ数字に変えます。
+<p>Dai:セクション番号の表示を一時的に"第（通常の算用数字）"形式に変えます。
+<p>DaiArabic:セクション番号の表示を一時的に"第（算用数字）"形式に変えます。
+<p>DaiKanji:セクション番号の表示を一時的に"第（漢数字）"形式に変えます。
+<p>DaiKata:セクション番号の表示を一時的に"第（カタカナ）"形式に変えます。
+<p>Daialph:セクション番号の表示を一時的に"第（小文字アルファベット）"形式に変えます。
+<p>DaiAlph:セクション番号の表示を一時的に"第（大文字アルファベット）"形式に変えます。
+<p>Dairoman:セクション番号の表示を一時的に"第（小文字ローマ数字）"形式に変えます。
+<p>DaiRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）"形式に変えます。
+<p>Daibu:セクション番号の表示を一時的に"第（通常の算用数字）部"形式に変えます。
+<p>DaibuArabic:セクション番号の表示を一時的に"第（算用数字）部"形式に変えます。
+<p>DaibuKanji:セクション番号の表示を一時的に"第（漢数字）部"形式に変えます。
+<p>DaibuKata:セクション番号の表示を一時的に"第（カタカナ）部"形式に変えます。
+<p>Daibualph:セクション番号の表示を一時的に"第（小文字アルファベット）部"形式に変えます。
+<p>DaibuAlph:セクション番号の表示を一時的に"第（大文字アルファベット）部"形式に変えます。
+<p>Daiburoman:セクション番号の表示を一時的に"第（小文字ローマ数字）部"形式に変えます。
+<p>DaibuRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）部"形式に変えます。
+<p>Daihen:セクション番号の表示を一時的に"第（通常の算用数字）編"形式に変えます。
+<p>DaihenArabic:セクション番号の表示を一時的に"第（算用数字）編"形式に変えます。
+<p>DaihenKanji:セクション番号の表示を一時的に"第（漢数字）編"形式に変えます。
+<p>DaihenKata:セクション番号の表示を一時的に"第（カタカナ）編"形式に変えます。
+<p>Daihenalph:セクション番号の表示を一時的に"第（小文字アルファベット）編"形式に変えます。
+<p>DaihenAlph:セクション番号の表示を一時的に"第（大文字アルファベット）編"形式に変えます。
+<p>Daihenroman:セクション番号の表示を一時的に"第（小文字ローマ数字）編"形式に変えます。
+<p>DaihenRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）編"形式に変えます。
+<p>Daisho:セクション番号の表示を一時的に"第（通常の算用数字）章"形式に変えます。
+<p>DaishoArabic:セクション番号の表示を一時的に"第（算用数字）章"形式に変えます。
+<p>DaishoKanji:セクション番号の表示を一時的に"第（漢数字）章"形式に変えます。
+<p>DaishoKata:セクション番号の表示を一時的に"第（カタカナ）章"形式に変えます。
+<p>Daishoalph:セクション番号の表示を一時的に"第（小文字アルファベット）章"形式に変えます。
+<p>DaishoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）章"形式に変えます。
+<p>Daishoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）章"形式に変えます。
+<p>DaishoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）章"形式に変えます。
+<p>Daisetsu:セクション番号の表示を一時的に"第（通常の算用数字）節"形式に変えます。
+<p>DaisetsuArabic:セクション番号の表示を一時的に"第（算用数字）節"形式に変えます。
+<p>DaisetsuKanji:セクション番号の表示を一時的に"第（漢数字）節"形式に変えます。
+<p>DaisetsuKata:セクション番号の表示を一時的に"第（カタカナ）節"形式に変えます。
+<p>Daisetsualph:セクション番号の表示を一時的に"第（小文字アルファベット）節"形式に変えます。
+<p>DaisetsuAlph:セクション番号の表示を一時的に"第（大文字アルファベット）節"形式に変えます。
+<p>Daisetsuroman:セクション番号の表示を一時的に"第（小文字ローマ数字）節"形式に変えます。
+<p>DaisetsuRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）節"形式に変えます。
+<p>Daikan:セクション番号の表示を一時的に"第（通常の算用数字）款"形式に変えます。
+<p>DaikanArabic:セクション番号の表示を一時的に"第（算用数字）款"形式に変えます。
+<p>DaikanKanji:セクション番号の表示を一時的に"第（漢数字）款"形式に変えます。
+<p>DaikanKata:セクション番号の表示を一時的に"第（カタカナ）款"形式に変えます。
+<p>Daikanalph:セクション番号の表示を一時的に"第（小文字アルファベット）款"形式に変えます。
+<p>DaikanAlph:セクション番号の表示を一時的に"第（大文字アルファベット）款"形式に変えます。
+<p>Daikanroman:セクション番号の表示を一時的に"第（小文字ローマ数字）款"形式に変えます。
+<p>DaikanRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）款"形式に変えます。
+<p>Daimoku:セクション番号の表示を一時的に"第（通常の算用数字）目"形式に変えます。
+<p>DaimokuArabic:セクション番号の表示を一時的に"第（算用数字）目"形式に変えます。
+<p>DaimokuKanji:セクション番号の表示を一時的に"第（漢数字）目"形式に変えます。
+<p>DaimokuKata:セクション番号の表示を一時的に"第（カタカナ）目"形式に変えます。
+<p>Daimokualph:セクション番号の表示を一時的に"第（小文字アルファベット）目"形式に変えます。
+<p>DaimokuAlph:セクション番号の表示を一時的に"第（大文字アルファベット）目"形式に変えます。
+<p>Daimokuroman:セクション番号の表示を一時的に"第（小文字ローマ数字）目"形式に変えます。
+<p>DaimokuRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）目"形式に変えます。
+<p>Daijo:セクション番号の表示を一時的に"第（通常の算用数字）条"形式に変えます。
+<p>DaijoArabic:セクション番号の表示を一時的に"第（算用数字）条"形式に変えます。
+<p>DaijoKanji:セクション番号の表示を一時的に"第（漢数字）条"形式に変えます。
+<p>DaijoKata:セクション番号の表示を一時的に"第（カタカナ）条"形式に変えます。
+<p>Daijoalph:セクション番号の表示を一時的に"第（小文字アルファベット）条"形式に変えます。
+<p>DaijoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）条"形式に変えます。
+<p>Daijoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）条"形式に変えます。
+<p>DaijoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）条"形式に変えます。
+<p>Daiko:セクション番号の表示を一時的に"第（通常の算用数字）項"形式に変えます。
+<p>DaikoArabic:セクション番号の表示を一時的に"第（算用数字）項"形式に変えます。
+<p>DaikoKanji:セクション番号の表示を一時的に"第（漢数字）項"形式に変えます。
+<p>DaikoKata:セクション番号の表示を一時的に"第（カタカナ）項"形式に変えます。
+<p>Daikoalph:セクション番号の表示を一時的に"第（小文字アルファベット）項"形式に変えます。
+<p>DaikoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）項"形式に変えます。
+<p>Daikoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）項"形式に変えます。
+<p>DaikoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）項"形式に変えます。
+<p>Daigo:セクション番号の表示を一時的に"第（通常の算用数字）号"形式に変えます。
+<p>DaigoArabic:セクション番号の表示を一時的に"第（算用数字）号"形式に変えます。
+<p>DaigoKanji:セクション番号の表示を一時的に"第（漢数字）号"形式に変えます。
+<p>DaigoKata:セクション番号の表示を一時的に"第（カタカナ）号"形式に変えます。
+<p>Daigoalph:セクション番号の表示を一時的に"第（小文字アルファベット）号"形式に変えます。
+<p>DaigoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）号"形式に変えます。
+<p>Daigoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）号"形式に変えます。
+<p>DaigoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）号"形式に変えます。
+<p>textbullet:セクション番号の表示を一時的に黒丸に変えます。
+<p>textendash:セクション番号の表示を一時的にダッシュに変えます。
+<p>textasterisk:セクション番号の表示を一時的にアスタリスクに変えます。
+<p>textperiodcentered:セクション番号の表示を一時的に中点に変えます。
+<p>labelitemi:セクション番号の表示に"<code>\labelitemi</code>"を使います。
+<p>labelitemii:セクション番号の表示に"<code>\labelitemii</code>"を使います。
+<p>labelitemiii:セクション番号の表示に"<code>\labelitemiii</code>"を使います。
+<p>labelitemiv:セクション番号の表示に"<code>\labelitemiv</code>"を使います。
+<p>labelenumi:セクション番号の表示に"<code>\labelenumi</code>"を使います。
+<p>labelenumii:セクション番号の表示に"<code>\labelenumii</code>"を使います。
+<p>labelenumiii:セクション番号の表示に"<code>\labelenumiii</code>"を使います。
+<p>labelenumiv:セクション番号の表示に"<code>\labelenumiv</code>"を使います。
+<p>star等:セクション番号の表示を一時的に数式モードの"<code>\star</code>"等に変えます。
+<p>tiny:文字の大きさを"<code>\tiny</code>"にする。
+<p>scriptsize:文字の大きさを"<code>\scriptsize</code>"にする。
+<p>footnotesize:文字の大きさを"<code>\footnotesize</code>"にする。
+<p>small:文字の大きさを"<code>\small</code>"にする。
+<p>normalsize:文字の大きさを"<code>\nomalsize</code>"にする。
+<p>large:文字の大きさを"<code>\large</code>"にする。
+<p>Large:文字の大きさを"<code>\Large</code>"にする。
+<p>LARGE:文字の大きさを"<code>\LARGE</code>"にする。
+<p>huge:文字の大きさを"<code>\huge</code>"にする。
+<p>Huge:文字の大きさを"<code>\Huge</code>"にする。
+<p>textbf:文字を太字にする。
+<p>textsl:文字を斜体にする（改行されなくなります。）。
+<p>underline:下線を引く（改行されなくなります。）。
+<p>Underline:二重線で下線を引く（改行されなくなります。）。
+<h5>引数1</h5>
+<p>セクションのタイトルを指定してください。
+<p>何も指定しないことも可能です。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクションを表示する。
+\sectionZ{日本国}
+<br>
+% セクションレベルAのセクションを表示する。
+\sectionA{東京都}
+<br>
+% セクションレベルBのセクションを表示する。
+\sectionB{東京市}
+<br>
+% セクションレベルCのセクションを表示する。
+\sectionC{東京町}
+<br>
+% セクションレベルDのセクションを表示する。
+\sectionD{1丁目}
+<br>
+% セクションレベルEのセクションを表示する。
+\sectionE{2番}
+<br>
+% セクションレベルFのセクションを表示する。
+\sectionF{3号}
+<br>
+% セクションレベルGのセクションを表示する。
+\sectionG{405号室}
+<br>
+% セクションレベルAのセクションを表示する。
+\sectionA[MaruArabic,LARGE,textbf,textsl,Underline]{東京都}
+<br>
+% セクションレベルBのセクションを表示する。
+\renewcommand{\labelitemi}{$\star$}
+\sectionB[labelitemi,Large,textbf,underline]{東京市}
+<br>
+% セクションレベルCのセクションを表示する。
+\renewcommand{\labelenumi}{\alph{enumi}}
+\sectionC[labelenumi,large,textsl]{東京町}
+</code>
+</pre>
+
+<h4 id="\sectionX*"><code>\sectionX*[オプション]{引数1},\SecX*[オプション]{引数1}（X=[ZABCDEFG]）</code></h4>
+<h5>機能</h5>
+<p>箇条書きセクションを表示するコマンドです。
+<p>kianマクロで最も重要なコマンドです。
+<p>セクション番号の上に空白を表示せず、目次にこのセクションを表示しません。
+<p>セクションを箇条書きとして使う場合に、使います。
+<p>"<code>\SecX*{引数1}</code>"は、"<code>\sectionX*{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>Arabic:セクション番号の表示を一時的に数字に変えます。
+<p>Kansuji:セクション番号の表示を一時的に漢数字に変えます。
+<p>Kata:セクション番号の表示を一時的にカタカナに変えます。
+<p>alph:セクション番号の表示を一時的に小文字アルファベットに変えます。
+<p>Alph:セクション番号の表示を一時的に大文字アルファベットに変えます。
+<p>roman:セクション番号の表示を一時的に小文字ローマ数字に変えます。
+<p>Roman:セクション番号の表示を一時的に大文字ローマ数字に変えます。
+<p>MaruArabic:セクション番号の表示を一時的に丸数字に変えます。
+<p>MaruKansuji:セクション番号の表示を一時的に丸漢数字に変えます。
+<p>MaruKata:セクション番号の表示を一時的に丸カタカナに変えます。
+<p>Marualph:セクション番号の表示を一時的に丸小文字アルファベットに変えます。
+<p>MaruAlph:セクション番号の表示を一時的に丸大文字アルファベットに変えます。
+<p>Maruroman:セクション番号の表示を一時的に丸小文字ローマ数字に変えます。
+<p>MaruRoman:セクション番号の表示を一時的に丸大文字ローマ数字に変えます。
+<p>KakkoArabic:セクション番号の表示を一時的に括弧数字に変えます。
+<p>KakkoKansuji:セクション番号の表示を一時的に括弧漢数字に変えます。
+<p>KakkoKata:セクション番号の表示を一時的に括弧カタカナに変えます。
+<p>Kakkoalph:セクション番号の表示を一時的に括弧小文字アルファベットに変えます。
+<p>KakkoAlph:セクション番号の表示を一時的に括弧大文字アルファベットに変えます。
+<p>Kakkoroman:セクション番号の表示を一時的に括弧小文字ローマ数字に変えます。
+<p>KakkoRoman:セクション番号の表示を一時的に括弧大文字ローマ数字に変えます。
+<p>kakkoArabic:セクション番号の表示を一時的に右括弧数字に変えます。
+<p>kakkoKansuji:セクション番号の表示を一時的に右括弧漢数字に変えます。
+<p>kakkoKata:セクション番号の表示を一時的に右括弧カタカナに変えます。
+<p>kakkoalph:セクション番号の表示を一時的に右括弧小文字アルファベットに変えます。
+<p>kakkoAlph:セクション番号の表示を一時的に右括弧大文字アルファベットに変えます。
+<p>kakkoroman:セクション番号の表示を一時的に右括弧小文字ローマ数字に変えます。
+<p>kakkoRoman:セクション番号の表示を一時的に右括弧大文字ローマ数字に変えます。
+<p>DotArabic:セクション番号の表示を一時的にドット数字に変えます。
+<p>DotKansuji:セクション番号の表示を一時的にドット漢数字に変えます。
+<p>DotKata:セクション番号の表示を一時的にドットカタカナに変えます。
+<p>Dotalph:セクション番号の表示を一時的にドット小文字アルファベットに変えます。
+<p>DotAlph:セクション番号の表示を一時的にドット大文字アルファベットに変えます。
+<p>Dotroman:セクション番号の表示を一時的にドット小文字ローマ数字に変えます。
+<p>DotRoman:セクション番号の表示を一時的にドット大文字ローマ数字に変えます。
+<p>ColonArabic:セクション番号の表示を一時的にコロン数字に変えます。
+<p>ColonKansuji:セクション番号の表示を一時的にコロン漢数字に変えます。
+<p>ColonKata:セクション番号の表示を一時的にコロンカタカナに変えます。
+<p>Colonalph:セクション番号の表示を一時的にコロン小文字アルファベットに変えます。
+<p>ColonAlph:セクション番号の表示を一時的にコロン大文字アルファベットに変えます。
+<p>Colonroman:セクション番号の表示を一時的にコロン小文字ローマ数字に変えます。
+<p>ColonRoman:セクション番号の表示を一時的にコロン大文字ローマ数字に変えます。
+<p>DaiArabic:セクション番号の表示を一時的に"第（算用数字）"形式に変えます。
+<p>DaiKanji:セクション番号の表示を一時的に"第（漢数字）"形式に変えます。
+<p>DaiKata:セクション番号の表示を一時的に"第（カタカナ）"形式に変えます。
+<p>Daialph:セクション番号の表示を一時的に"第（小文字アルファベット）"形式に変えます。
+<p>DaiAlph:セクション番号の表示を一時的に"第（大文字アルファベット）"形式に変えます。
+<p>Dairoman:セクション番号の表示を一時的に"第（小文字ローマ数字）"形式に変えます。
+<p>DaiRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）"形式に変えます。
+<p>DaibuArabic:セクション番号の表示を一時的に"第（算用数字）部"形式に変えます。
+<p>DaibuKanji:セクション番号の表示を一時的に"第（漢数字）部"形式に変えます。
+<p>DaibuKata:セクション番号の表示を一時的に"第（カタカナ）部"形式に変えます。
+<p>Daibualph:セクション番号の表示を一時的に"第（小文字アルファベット）部"形式に変えます。
+<p>DaibuAlph:セクション番号の表示を一時的に"第（大文字アルファベット）部"形式に変えます。
+<p>Daiburoman:セクション番号の表示を一時的に"第（小文字ローマ数字）部"形式に変えます。
+<p>DaibuRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）部"形式に変えます。
+<p>DaishoArabic:セクション番号の表示を一時的に"第（算用数字）章"形式に変えます。
+<p>DaishoKanji:セクション番号の表示を一時的に"第（漢数字）章"形式に変えます。
+<p>DaishoKata:セクション番号の表示を一時的に"第（カタカナ）章"形式に変えます。
+<p>Daishoalph:セクション番号の表示を一時的に"第（小文字アルファベット）章"形式に変えます。
+<p>DaishoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）章"形式に変えます。
+<p>Daishoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）章"形式に変えます。
+<p>DaishoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）章"形式に変えます。
+<p>DaisetsuArabic:セクション番号の表示を一時的に"第（算用数字）節"形式に変えます。
+<p>DaisetsuKanji:セクション番号の表示を一時的に"第（漢数字）節"形式に変えます。
+<p>DaisetsuKata:セクション番号の表示を一時的に"第（カタカナ）節"形式に変えます。
+<p>Daisetsualph:セクション番号の表示を一時的に"第（小文字アルファベット）節"形式に変えます。
+<p>DaisetsuAlph:セクション番号の表示を一時的に"第（大文字アルファベット）節"形式に変えます。
+<p>Daisetsuroman:セクション番号の表示を一時的に"第（小文字ローマ数字）節"形式に変えます。
+<p>DaisetsuRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）節"形式に変えます。
+<p>DaijoArabic:セクション番号の表示を一時的に"第（算用数字）条"形式に変えます。
+<p>DaijoKanji:セクション番号の表示を一時的に"第（漢数字）条"形式に変えます。
+<p>DaijoKata:セクション番号の表示を一時的に"第（カタカナ）条"形式に変えます。
+<p>Daijoalph:セクション番号の表示を一時的に"第（小文字アルファベット）条"形式に変えます。
+<p>DaijoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）条"形式に変えます。
+<p>Daijoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）条"形式に変えます。
+<p>DaijoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）条"形式に変えます。
+<p>DaikoArabic:セクション番号の表示を一時的に"第（算用数字）項"形式に変えます。
+<p>DaikoKanji:セクション番号の表示を一時的に"第（漢数字）項"形式に変えます。
+<p>DaikoKata:セクション番号の表示を一時的に"第（カタカナ）項"形式に変えます。
+<p>Daikoalph:セクション番号の表示を一時的に"第（小文字アルファベット）項"形式に変えます。
+<p>DaikoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）項"形式に変えます。
+<p>Daikoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）項"形式に変えます。
+<p>DaikoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）項"形式に変えます。
+<p>DaigoArabic:セクション番号の表示を一時的に"第（算用数字）号"形式に変えます。
+<p>DaigoKanji:セクション番号の表示を一時的に"第（漢数字）号"形式に変えます。
+<p>DaigoKata:セクション番号の表示を一時的に"第（カタカナ）号"形式に変えます。
+<p>Daigoalph:セクション番号の表示を一時的に"第（小文字アルファベット）号"形式に変えます。
+<p>DaigoAlph:セクション番号の表示を一時的に"第（大文字アルファベット）号"形式に変えます。
+<p>Daigoroman:セクション番号の表示を一時的に"第（小文字ローマ数字）号"形式に変えます。
+<p>DaigoRoman:セクション番号の表示を一時的に"第（大文字ローマ数字）号"形式に変えます。
+<p>textbullet:セクション番号の表示を一時的に黒丸に変えます。
+<p>textendash:セクション番号の表示を一時的にダッシュに変えます。
+<p>textasterisk:セクション番号の表示を一時的にアスタリスクに変えます。
+<p>textperiodcentered:セクション番号の表示を一時的に中点に変えます。
+<p>labelitemi:セクション番号の表示に"<code>\labelitemi</code>"を使います。
+<p>labelitemii:セクション番号の表示に"<code>\labelitemii</code>"を使います。
+<p>labelitemiii:セクション番号の表示に"<code>\labelitemiii</code>"を使います。
+<p>labelitemiv:セクション番号の表示に"<code>\labelitemiv</code>"を使います。
+<p>labelenumi:セクション番号の表示に"<code>\labelenumi</code>"を使います。
+<p>labelenumii:セクション番号の表示に"<code>\labelenumii</code>"を使います。
+<p>labelenumiii:セクション番号の表示に"<code>\labelenumiii</code>"を使います。
+<p>labelenumiv:セクション番号の表示に"<code>\labelenumiv</code>"を使います。
+<p>star等:セクション番号の表示を一時的に数式モードの"<code>\star</code>"等に変えます。
+<p>tiny:文字の大きさを"<code>\tiny</code>"にする。
+<p>scriptsize:文字の大きさを"<code>\scriptsize</code>"にする。
+<p>footnotesize:文字の大きさを"<code>\footnotesize</code>"にする。
+<p>small:文字の大きさを"<code>\small</code>"にする。
+<p>normalsize:文字の大きさを"<code>\nomalsize</code>"にする。
+<p>large:文字の大きさを"<code>\large</code>"にする。
+<p>Large:文字の大きさを"<code>\Large</code>"にする。
+<p>LARGE:文字の大きさを"<code>\LARGE</code>"にする。
+<p>huge:文字の大きさを"<code>\huge</code>"にする。
+<p>Huge:文字の大きさを"<code>\Huge</code>"にする。
+<p>textbf:文字を太字にする。
+<p>textsl:文字を斜体にする（改行されなくなります。）。
+<p>underline:下線を引く（改行されなくなります。）。
+<p>Underline:二重線で下線を引く（改行されなくなります。）。
+<h5>引数1</h5>
+<p>セクションのタイトルを指定してください。
+<p>何も指定しないことも可能です。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションレベルZのセクションを表示する。
+\sectionZ*{日本国}
+<br>
+% セクションレベルAのセクションを表示する。
+\sectionA*{東京都}
+<br>
+% セクションレベルBのセクションを表示する。
+\sectionB*{東京市}
+<br>
+% セクションレベルCのセクションを表示する。
+\sectionC*{東京町}
+<br>
+% セクションレベルDのセクションを表示する。
+\sectionD*{1丁目}
+<br>
+% セクションレベルEのセクションを表示する。
+\sectionE*{2番}
+<br>
+% セクションレベルFのセクションを表示する。
+\sectionF*{3号}
+<br>
+% セクションレベルGのセクションを表示する。
+\sectionG*{405号室}
+<br>
+% セクションレベルAのセクションを表示する。
+\sectionA*[MaruArabic,LARGE,textbf,textsl,Underline]{東京都}
+<br>
+% セクションレベルBのセクションを表示する。
+\renewcommand{\labelitemi}{$\star$}
+\sectionB*[labelitemi,Large,textbf,underline]{東京市}
+<br>
+% セクションレベルCのセクションを表示する。
+\renewcommand{\labelenumi}{\alph{enumi}}
+\sectionC*[labelenumi,large,textsl]{東京町}
+</code>
+</pre>
+
+<h4 id="\tableofcontents"><code>\tableofcontents</code></h4>
+<h5>機能</h5>
+<p>目次を表示します。
+<p>このコマンドは、何も修正していません。
+<h5>使用例</h5>
+<pre>
+<code>
+% 目次を表示する。
+\tableofcontents
+</code>
+</pre>
+
+<h4 id="\refdepth"><code>\refdepth{引数1}</code></h4>
+<h5>機能</h5>
+<p>表示するセクション番号の深さを設定します。
+<h5>引数1</h5>
+<p>表示するセクション番号を深さを整数値で指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクション番号を深さを"<code>3</code>"に指定する（表示例：1(2)ウ）。
+\refdepth{3}
+</code>
+</pre>
+
+<h4 id="\label"><code>\label{引数1}</code></h4>
+<h5>機能</h5>
+<p>ラベルを設定して、セクション番号を記録します。
+<p>このコマンドは、何も修正していません。
+<h5>引数1</h5>
+<p>セクションのラベルを指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 現在のセクションのラベルを"<code>sec:はじめに</code>"に設定する。
+\label{sec:はじめに}
+</code>
+</pre>
+
+<h4 id="\ref"><code>\ref{引数1}</code></h4>
+<h5>機能</h5>
+<p>ラベルを参照して、セクション番号を表示します。
+<p>このコマンドは、何も修正していません。
+<h5>引数1</h5>
+<p>参照するセクションのラベルを指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% セクションのラベルが"<code>sec:はじめに</code>"のセクション番号を表示する。
+\ref{sec:はじめに}
+</code>
+</pre>
+
+<h3 id="タイトルの設定（kian-titl.sty）">タイトルの設定（kian-titl.sty）</h3>
+<p>タイトルを設定します。
+<p>タイトルには、整理番号（事件番号）等の項目を追加しました。
+
+<h4 id="\maketitle"><code>\maketitle[オプション]</code></h4>
+<h5>機能</h5>
+<p>タイトルを表示します。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>-</code></dt><dd>0.25行、行間を縮めます。</dd>
+<dt><code>+</code></dt><dd>0.25行、行間を空けます。</dd>
+<dt><code>i</code></dt><dd>整理番号（事件番号）を表示します。</dd>
+<dt><code>t</code></dt><dd>標題を表示します。</dd>
+<dt><code>d</code></dt><dd>日付を表示します。</dd>
+<dt><code>r</code></dt><dd>受信人を表示します。</dd>
+<dt><code>s</code></dt><dd>発信人を表示します。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% タイトルをデフォルトの順
+% （整理番号（事件番号）→標題→日付→受信人→発信人の順）に、
+% 設定されているものを表示します。
+\maketitle
+<br>
+% タイトルを「日付→1行空行→標題」の順に、 設定されているものを表示します。
+% \maketitlecontents{d++++t}\maketitleと全く同じです。
+\maketitle[d++++t]
+</code>
+</pre>
+
+<h4 id="\maketitlecontents"><code>\maketitlecontents{引数1}</code></h4>
+<h5>機能</h5>
+<p>タイトルで表示される内容を設定します。
+<p>デフォルトでは、"<code>i+++t+++d++r++s</code>"が設定されています。
+<h5>引数1</h5>
+<p>
+<dl>
+<dt><code>-</code></dt><dd>0.25行、行間を縮めます。</dd>
+<dt><code>+</code></dt><dd>0.25行、行間を空けます。</dd>
+<dt><code>i</code></dt><dd>整理番号（事件番号）を表示します。</dd>
+<dt><code>t</code></dt><dd>標題を表示します。</dd>
+<dt><code>d</code></dt><dd>日付を表示します。</dd>
+<dt><code>r</code></dt><dd>受信人を表示します。</dd>
+<dt><code>s</code></dt><dd>発信人を表示します。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% タイトルを「日付→1行空行→標題」の順に、 設定されているものを表示します。
+% \maketitle[d++++t]と全く同じです。
+\maketitlecontents{d++++t}
+\maketitle
+</code>
+</pre>
+
+<h4 id="\idcode"><code>\idcode[オプション]{引数1},\Idc[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>整理番号（事件番号）を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Idc[オプション]{引数1}</code>"は、"<code>\idcode[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>左寄せで表示します。（デフォルト）</dd>
+<dt><code>c</code></dt><dd>中央寄せで表示します。</dd>
+<dt><code>r</code></dt><dd>右寄せで表示します。</dd>
+<dt><code>o</code></dt><dd>当事者を1段組で表示します。（デフォルト）</dd>
+<dt><code>t</code></dt><dd>当事者を2段組で表示します。</dd>
+<dt><code>(数値)</code></dt><dd>肩書の幅を指定します。"<code>-1</code>"を指定すると実測値を、"<code>-2</code>"を指定すると実測値の最大値を、"<code>-3</code>"を指定すると3文字以上の実測値の最大値を使います。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>コメント、狭義の整理番号（事件番号）、肩書付き当事者名で指定してください。
+<p>項目間は"<code>\\</code>"で仕切ってください。
+<p>何の項目であるかは自動で判断しますが、明示する場合は、"<code>B=</code>"で所属（会社名、部署名等）、"<code>N=</code>"で肩書付き名前であることを、明示できます。また、"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 事件番号を1段組で設定します。
+\idcode{
+  H12(ワ)3456:損害賠償請求事件\\
+  原告:東京/一郎:1\\
+  被告:神奈川/二郎
+}
+<br>
+% 事件番号を2段組で設定します。
+\idcode[t]{
+  I=H12(ワ)3456:損害賠償請求事件\\
+  P=原告:東京/一郎:1\\
+  P=被告:神奈川/二郎
+}
+<br>
+% 判決の頭書書きを設定します。
+\idcode{
+  平成12年3月4日判決言渡:同日原本領収\\
+  H12(ワ)3456:損害賠償請求事件\\
+  原告:東京/一郎:1\\
+  被告:神奈川/二郎
+}
+<br>
+% 弁護士会の当番弁護士の事件番号（年度単位）を設定します。
+\idcode{H12d(当)3456:}
+<br>
+% 検察庁の事件番号（括弧なし形式）を右寄せで設定します。
+\idcode[r]{H12[検]3456:}
+<br>
+% 行間を1.5倍に広げて、事件番号を1段組で設定します。
+\idcode{
+  X=\setlength{\baselineskip}{1.5\baselineskip}\\
+  H12(ワ)3456:損害賠償請求事件\\
+  原告:東京/一郎:1\\
+  被告:神奈川/二郎
+}
+</code>
+</pre>
+
+<h4 id="\idcodes"><code>\idcodes{引数1},\Idcs{引数1}</code></h4>
+<h5>機能</h5>
+<p>複数、整理番号（事件番号）を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Idcs{引数1}</code>"は、"<code>\idcodes{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>"<code>\idcode</code>"のオプションと引数を、複数（単数も可）指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 複数、事件番号を2段組で設定します。
+\idcodes{
+  [t]{H12(ワ)3456:損害賠償請求事件\\原告:東京/一郎:1\\被告:神奈川/二郎}
+  [t]{H12(ワ)7890:損害賠償請求事件\\原告:大阪/三郎:1\\被告:愛知/四郎}
+}
+</code>
+</pre>
+
+<h4 id="\idcodehlength"><code>\idcodehlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}{引数7}{引数8}{引数9}</code></h4>
+<h5>機能</h5>
+<p>整理番号（事件番号）の表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>全体の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>全体の2行目以下の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>データが2行以上に渡る場合に、2行目以下の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数4</h5>
+<p>狭義の整理番号（事件番号）の幅を指定します。空の場合は既存の設定を維持します。
+<p>"-1"を指定すると、実測値を使います。
+<h5>引数5</h5>
+<p>狭義の事件番号と事件名の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数6</h5>
+<p>人名の肩書きの幅を指定します。空の場合は既存の設定を維持します。
+<p>"<code>-1</code>"を指定すると実測値を、"<code>-2</code>"を指定すると実測値の最大値を、"<code>-3</code>"を指定すると3文字以上の実測値の最大値を使います。
+<h5>引数7</h5>
+<p>肩書きと名前の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数8</h5>
+<p>名前の幅を指定します。空の場合は既存の設定を維持します。
+<p>"-1"を指定すると実測値を使います。
+<h5>引数9</h5>
+<p>名前と外何名の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\idcodehlength{0}{0}{0}{-1}{1}{-2}{1}{7}{1}
+</code>
+</pre>
+
+<h4 id="\idcodevlength"><code>\idcodevlength{引数1}{引数2}{引数3}</code></h4>
+<h5>機能</h5>
+<p>整理番号（事件番号）の表示に関係する縦幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>整理番号（事件番号）の全部を表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>整理番号（事件番号）の各データを表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>整理番号（事件番号）の各データが2行に渡る場合、2行目以下の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\idcodevlength{1}{1}{1}
+</code>
+</pre>
+
+<h4 id="\printidcode"><code>\printidcode</code></h4>
+<h5>機能</h5>
+<p>"<code>\idcode</code>"又は"<code>\idcodes</code>"で設定された整理番号（事件番号）を表示するコマンドです。
+<p>通常は"<code>\maketitle</code>"でまとめて表示させますが、特に整理番号（事件番号）だけを表示させたい場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 整理番号（事件番号）を表示します。
+\printidcode
+</code>
+</pre>
+
+<h4 id="\title"><code>\title[オプション]{引数1},\Tit[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>文書の標題とサブ標題を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Tit[オプション]{引数1}</code>"は、"<code>\title[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>左寄せで表示する。</dd>
+<dt><code>c</code></dt><dd>中央寄せで表示する。（デフォルト）</dd>
+<dt><code>r</code></dt><dd>右寄せで表示する。</dd>
+<dt><code>n</code></dt><dd>文字を普通の大きさで表示する。（サブ標題ではデフォルト）</dd>
+<dt><code>b</code></dt><dd>文字を150%の大きさで表示する。（メイン標題ではデフォルト）</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>文書の標題、サブ標題を指定してください。
+<p>項目間は"<code>\\</code>"で仕切ってください。
+<p>標題とサブ標題は自動で判断しますが、明示する場合は、"<code>T=</code>"で標題、"<code>S=</code>"でサブ標題であることを、明示できます。また、"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文書の標題を「訴状」に設定します。
+\title{訴状}
+<br>
+% 文書の標題を「第1準備書面」に、サブ標題を「〜原告の言い分〜」に設定します。
+\title{第1準備書面\\S=〜原告の言い分〜}
+</code>
+</pre>
+
+<h4 id="\titles"><code>\titles{引数1},\Tits{引数1}</code></h4>
+<h5>機能</h5>
+<p>複数、文書の標題とサブ標題を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Tits{引数1}</code>"は、"<code>\titles{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>"<code>\title</code>"のオプションと引数を、複数（単数も可）指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 標題を「第1準備書面」に、サブ標題を「〜原告の言い分〜」に設定します。
+\titles{{第1準備書面}{〜原告の言い分〜}}
+</code>
+</pre>
+
+<h4 id="\titlehlength"><code>\titlehlength{引数1}</code></h4>
+<h5>機能</h5>
+<p>文書の標題とサブ標題の表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>左寄せ表示の場合の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\titlehlength{0}
+</code>
+</pre>
+
+<h4 id="\titlevlength"><code>\titlevlength{引数1}{引数2}{引数3}</code></h4>
+<h5>機能</h5>
+<p>文書の標題とサブ標題の表示に関係する縦幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>文書の標題とサブ標題の全部を表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>文書の標題とサブ標題の各データを表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>文書の標題とサブ標題の各データが2行に渡る場合、2行目以下の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\kian@titlevlength{1}{1}{1}
+</code>
+</pre>
+
+<h4 id="\printtitle"><code>\printtitle</code></h4>
+<h5>機能</h5>
+<p>"<code>\title</code>"又は"<code>\titles</code>"で設定された文書の標題とサブ標題を表示するコマンドです。
+<p>通常は"<code>\maketitle</code>"でまとめて表示させますが、特に文書の標題とサブ標題だけを表示させたい場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文書の標題とサブ標題を表示します。
+\printtitle
+</code>
+</pre>
+
+<h4 id="\date"><code>\date[オプション]{引数1},\Dat[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>文書の作成日及び修正日を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Dat[オプション]{引数1}</code>"は、"<code>\date[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>左寄せで表示する。</dd>
+<dt><code>c</code></dt><dd>中央寄せで表示する。</dd>
+<dt><code>r</code></dt><dd>右寄せで表示する。（デフォルト）</dd>
+<dt><code>j</code></dt><dd>和暦で表示する。（デフォルト）</dd>
+<dt><code>w</code></dt><dd>西暦で表示する。</dd>
+<dt><code>d</code></dt><dd>西暦と括弧付きの和暦を表示する。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>日付を指定してください。
+<p>"<code>-b</code>"と"<code>-B</code>"で日付の記入欄になります。前者がで年月日が空欄、後者は月日が空欄です。記入欄の改行幅は"<code>\blankvskip{引数1}</code>"で調整できます。
+<p>"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 平成元年1月1日を作成日に設定する。
+\date{平成元年1月1日}
+<br>
+% 明日を作成日に設定し、表示は西暦で、左寄せで表示する。
+\date[dl]{\today[+1]}
+<br>
+% 作成日、修正日をまとめて設定する。
+\date{平成元年6月1日作成\\平成6年11月16日修正\\平成11年6月1日修正}
+<br>
+% 見た目を揃えて、作成日、修正日をまとめて設定する。
+\date{\arrangedate*{H01.06.01}作成\\\arrangedate*{H06.11.16}修正\\\arrangedate*{H11.06.01}作成}
+<br>
+% 日付を記入欄（年月日が空欄）にする。
+\date{-b}
+<br>
+% 日付を記入欄（月日が空欄）にする。
+\date{-B}
+</code>
+</pre>
+
+<h4 id="\dates"><code>\dates{引数1},\Dats{引数1}</code></h4>
+<h5>機能</h5>
+<p>複数、文書の作成日及び修正日を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Dats{引数1}</code>"は、"<code>\dates{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>"<code>\date</code>"のオプションと引数を、複数（単数も可）指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 作成日、修正日をまとめて設定する。
+\dates{{平成元年6月1日作成}{平成6年11月16日修正}{平成11年6月1日修正}}
+</code>
+</pre>
+
+<h4 id="\datehlength"><code>\datehlength{引数1}</code></h4>
+<h5>機能</h5>
+<p>文書の作成日及び修正日の表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>左寄せ表示の場合の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\datehlength{0}
+</code>
+</pre>
+
+<h4 id="\datevlength"><code>\datevlength{引数1}{引数2}{引数3}</code></h4>
+<h5>機能</h5>
+<p>文書の作成日及び修正日の表示に関係する縦幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>文書の作成日及び修正日の全部を表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>文書の作成日及び修正日の各データを表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>文書の作成日及び修正日の各データが2行に渡る場合、2行目以下の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\datevlength{1{1}{1}
+</code>
+</pre>
+
+<h4 id="\printdate"><code>\printdate</code></h4>
+<h5>機能</h5>
+<p>"<code>\date</code>"又は"<code>\dates</code>"で設定された文書の作成日及び修正日を表示するコマンドです。
+<p>通常は"<code>\maketitle</code>"でまとめて表示させますが、特に文書の作成日及び修正日だけを表示させたい場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 文書の作成日及び修正日を表示します。
+\printdate
+</code>
+</pre>
+
+<h4 id="\receiver"><code>\receiver[オプション]{引数1},\Rec[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>受信人を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Rec[オプション]{引数1}</code>"は、"<code>\receiver[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>s</code></dt><dd>受信人の名前を均等割付けしない。</dd>
+<dt><code>n</code></dt><dd>文字を普通の大きさで表示する。（デフォルト）</dd>
+<dt><code>b</code></dt><dd>文字を125%の大きさで表示する。</dd>
+<dt><code>(数値)</code></dt><dd>各データ間の改行の調整幅（少数も可）を指定する。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>受信人の所属と肩書付き名前を指定してください。
+<p>項目間は"<code>\\</code>"で仕切ってください。
+<p>何の項目であるかは自動で判断しますが、明示する場合は、"<code>C=</code>"でコメント、"<code>I=</code>"で狭義の整理番号（事件番号）、"<code>P=</code>"で肩書付き当事者名であることを、明示できます。また、"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 受信人を「東京太郎株式会社神奈川支店支店長神奈川弐郎様」に設定する。
+\receiver{東京太郎株式会社\\神奈川支店\\支店長:神奈川/弐郎:様}
+<br>
+% 名前を大きくし、改行幅を0.25行ほど狭くする。
+\receiver[-0.25b]{:大阪/参郎:様\\:愛知/四郎:様}
+</code>
+</pre>
+
+<h4 id="\receivers"><code>\receivers{引数1},\Recs{引数1}</code></h4>
+<h5>機能</h5>
+<p>複数、受信人を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Recs{引数1}</code>"は、"<code>\receivers{引数1}\Recs{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>"<code>\receiver</code>"のオプションと引数を、複数（単数も可）指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 受信人を「東京太郎株式会社神奈川弐郎様」と
+% 「大阪参郎株式会社愛知四郎様」に設定する。
+\receivers{
+  [b]{東京太郎株式会社\\:神奈川/弐郎:様}
+  [b]{大阪参郎株式会社\\:愛知/四郎:様}
+}
+</code>
+</pre>
+
+<h4 id="\receiverhlength"><code>\receiverhlength{引数1}{引数2}{引数3}{引数4}{引数5}{引数6}{引数7}{引数8}</code></h4>
+<h5>機能</h5>
+<p>受信人の表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>全体の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>全体の2行目以下の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>データが2行以上に渡る場合に、2行目以下の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数4</h5>
+<p>肩書き付き名前の字下げの幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数5</h5>
+<p>肩書きの幅を指定します。空の場合は既存の設定を維持します。
+<p>"-1"を指定すると、実測値を使います。
+<h5>引数6</h5>
+<p>肩書きと名前の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数7</h5>
+<p>名前の幅を指定します。空の場合は既存の設定を維持します。
+<p>"0"を指定すると実測値を使います。"-1"ではないので、注意してください。
+<h5>引数8</h5>
+<p>名前と敬称の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\receiverhlength{0}{0}{0}{0}{-1}{1}{7}{1}
+</code>
+</pre>
+
+<h4 id="\receivervlength"><code>\receivervlength{引数1}{引数2}{引数3}</code></h4>
+<h5>機能</h5>
+<p>受信人の表示に関係する縦幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>受信人の全部を表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>受信人の各データを表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>受信人の各データが2行に渡る場合、2行目以下の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\receivervlength{1}{1}{1}
+</code>
+</pre>
+
+<h4 id="\printreceiver"><code>\printreceiver</code></h4>
+<h5>機能</h5>
+<p>"<code>\receiver</code>"又は"<code>\receiver</code>"で設定された受信人を表示するコマンドです。
+<p>通常は"<code>\maketitle</code>"でまとめて表示させますが、特に受信人だけを表示させたい場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 受信人を表示します。
+\printreceiver
+</code>
+</pre>
+
+<h4 id="\sender"><code>\sender[オプション]{引数1},\Sen[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>送信人を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Sen[オプション]{引数1}</code>"は、"<code>\sender[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>肩書を左寄せで表示する。</dd>
+<dt><code>c</code></dt><dd>肩書を中央寄せで表示する。</dd>
+<dt><code>r</code></dt><dd>肩書を右寄せで表示する。</dd>
+<dt><code>j</code></dt><dd>肩書を均等割付けで表示する。（デフォルト）</dd>
+<dt><code>(数値)</code></dt><dd>名前間の改行の調整幅を指定する。印鑑の幅を確保するために使います。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>送信人を指定してください。
+<p>何の項目であるかは自動で判断しますが、明示する場合は、"<code>A=</code>"で住所、"<code>T=</code>"で電話及びファックス番号、"<code>n=</code>"で署名者以外の肩書付き名前、"<code>N=</code>"で署名者の肩書付き名前、"<code>O=</code>"で署名者の「（公印省略）」の表示であることを、明示できます。また、"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<p>"<code>-s:（数値）</code>"で、"<code>\baselineskip</code>"単位の空白にすることが出来ます。
+<p>"<code>-S:オプション</code>"で、別定義のスタンプ"<code>\senderstamp[オプション]</code>"を使うことができます。オプションは、そのまま"<code>\senderstamp</code>"のオプションになります。
+<p>"<code>-b</code>"、"<code>-b:（肩書）</code>"、"<code>-B</code>"、"<code>-B:（肩書）</code>"で、住所と氏名の記入欄になります。"<code>-b</code>"は氏名欄のみに下線が、"<code>-B</code>"は住所欄と氏名欄に下線が引かれます。記入欄の改行幅は"<code>\blankvskip{引数1}</code>"で調整できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 送信人を住所を設定する。
+\sender{
+  123-4567:東京都東京市東京8番9号/東京太郎株式会社\\
+  012-345-6789/012-345-6780\\
+  代表取締役社長:東京太郎
+}
+<br>
+% 送信人を住所を設定する。
+\sender{
+  A=123-4567:東京都東京市東京8番9号/東京太郎株式会社\\
+  T=012-345-6789/012-345-6780\\
+  N=代表取締役社長:東京太郎
+}
+<br>
+% 送信人を、3.5行分の空白に設定する。
+\sender{s:3.5}
+<br>
+% 送信人を、スタンプを定義して設定する。
+\newcommand{\senderstamp}[1]{
+  \begin{flushright}
+  #1\\
+  〒\zipnumber{123-4567}東京都東京市東京8番9号\\
+  東京太郎株式会社\\
+  代表取締役東京太郎
+  \end{flushright}
+}
+\sender{S:年中無休}
+<br>
+% 送信人を住所と氏名の記入欄（氏名欄のみに下線）にする。
+\sender{-b}
+<br>
+% 送信人を住所と氏名の記入欄（住所欄と氏名欄に下線）にする。
+\sender{-B}
+</code>
+</pre>
+
+<h4 id="\senders"><code>\senders{引数1},\Sens{引数1}</code></h4>
+<h5>機能</h5>
+<p>複数、送信人を設定します。
+<p>表示は"<code>\maketitle</code>"で行われます。
+<p>"<code>\Sens{引数1}</code>"は、"<code>\senders{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>"<code>\sender</code>"のオプションと引数を、複数（単数も可）指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 送信人を「東京太郎株式会社神奈川弐郎様」と
+% 「大阪参郎株式会社愛知四郎様」に設定する。
+\senders{
+  {東京太郎株式会社:神奈川/弐郎}
+  {大阪参郎株式会社:愛知/四郎}
+}
+</code>
+</pre>
+
+<h4 id="\senderhlength"><code>\senderhlength{引数1}{引数2}{引数3}{引数4}</code></h4>
+<h5>機能</h5>
+<p>送信人の表示に関係する横幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>全体の字下げ幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>肩書の幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>肩書きと名前の間の幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数4</h5>
+<p>名前の幅の幅を指定します。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\kian@senderhlength{13}
+</code>
+</pre>
+
+<h4 id="\sendervlength"><code>\sendervlength{引数1}{引数2}{引数3}{引数4}</code></h4>
+<h5>機能</h5>
+<p>送信人の表示に関係する縦幅を設定するコマンドです。
+<h5>引数1</h5>
+<p>送信人の全部を表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数2</h5>
+<p>送信人の各データを表示した後の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数3</h5>
+<p>送信人の各データが2行に渡る場合、2行目以下の改行幅を指定します。空の場合は既存の設定を維持します。
+<h5>引数4</h5>
+<p>名前間の改行幅を指定します。印鑑の幅を確保するために使います。空の場合は既存の設定を維持します。
+<h5>使用例</h5>
+<pre>
+<code>
+% デフォルトの設定に戻す。
+\sendervlength{1}{1}{1}{1}
+</code>
+</pre>
+
+<h4 id="\author"><code>\author</code></h4>
+<h5>機能</h5>
+<p>"<code>sender</code>"と全く同じです。
+<p>詳しくは"<code>sender</code>"をご覧ください。
+
+<h4 id="\printsender"><code>\printsender</code></h4>
+<h5>機能</h5>
+<p>"<code>\sender</code>"又は"<code>\senders</code>"で設定された送信人を表示するコマンドです。
+<p>通常は"<code>\maketitle</code>"でまとめて表示させますが、特に送信人だけを表示させたい場合に使います。
+<h5>使用例</h5>
+<pre>
+<code>
+% 受信人を表示します。
+\printsender
+</code>
+</pre>
+
+<h4 id="\person"><code>\person[オプション]{引数1},\Per[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>人の情報を表示します。
+<p>"<code>\Per[オプション]{引数1}</code>"は、"<code>\person[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>肩書付き名前の肩書を左寄せで表示する。</dd>
+<dt><code>c</code></dt><dd>肩書付き名前の肩書を中央寄せで表示する。</dd>
+<dt><code>r</code></dt><dd>肩書付き名前の肩書を右寄せで表示する。</dd>
+<dt><code>j</code></dt><dd>肩書付き名前の肩書を均等割付けで表示する。（デフォルト）</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>人の情報を指定してください。
+<p>項目は明示がなければ自動で判断しますが、"<code>A=</code>"で住所（「住所」明示あり）、"<code>a=</code>"で住所（「住所」明示なし）、"<code>H=</code>"で住居（「住居」明示あり）、"<code>h=</code>"で住居（「住居」明示なし）、"<code>D=</code>"で本籍（「本籍」明示あり）、"<code>d=</code>"で本籍（「本籍」明示なし）、"<code>C=</code>"で国籍（「国籍」明示あり）、"<code>c=</code>"で国籍（「国籍」明示なし）、"<code>T=</code>"で電話番号とファックス番号、"<code>J=</code>"で職業（「職業」明示あり）、"<code>j=</code>"で職業（「職業」明示なし）、"<code>B=</code>"で生年月日、"<code>G=</code>"で死亡年月日、"<code>n=</code>"で署名者以外の肩書付き名前、"<code>N=</code>"で署名者の肩書付き名前であることを、明示できます。また、"<code>X=</code>"で、任意のコマンドを実行させることもできます。
+<p>住所及び肩書を"<code>/</code>"で区切っておくと、長すぎる場合に自動で改行します。"<code>//</code>"で区切っておくと、強制的で改行します。
+<p>送信人の表示に別に定義済みのスタンプ"<code>\senderstamp</code>"を使う場合は、ここで指定したものが、オプションに使われます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 住所、本籍、電話とファックス番号、会社名、社長名を表示する。
+\person{
+  A=012-3456:東京都東京市東京7-8\\
+  D=東京都東京市東京7-8\\
+  T=012-345-6789/012-345-6780\\
+  N=申立人:東京太郎株式会社\\
+  n=代表取締役社長:東京太郎
+}
+</code>
+</pre>
+
+<h4 id="\idcodenumber"><code>\idcodenumber{引数1},\Idn{引数1}</code></h4>
+<h5>機能</h5>
+<p>整理番号（事件番号）を表示するコマンドです。
+<p>"<code>\Idn{引数1}</code>"は、"<code>\idcodenumber{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>整理番号（事件番号）を「H12(Ｘ)3456」、「H12[Ｘ]3456」、「H12d(Ｘ)3456」又は「H12d[Ｘ]3456」の書式で指定してください。
+<p>「H12(Ｘ)3456」は括弧付きで、「H12[Ｘ]3456」は括弧なしで事件番号を表示します。
+<p>「H12(Ｘ)3456」は年で、「H12d(Ｘ)3456」は年度で事件番号を表示します。
+<p>「H12(Ｘ)3456:事件名」という書式で事件名を指定できます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 整理番号（事件番号）を「平成12年(広島)第3456号」という書式で表示します。
+\idcodenumber{H12(広島)3456}
+<br>
+% 整理番号（事件番号）を「平成12年広島第3456号」という書式で表示します。
+\idcodenumber{H12[広島]3456}
+<br>
+% 整理番号（事件番号）を「平成12年度(広島)第3456号」という書式で表示します。
+\idcodenumber{H12d(広島)3456}
+<br>
+% 整理番号（事件番号）を「平成12年度広島第3456号」という書式で表示します。
+\idcodenumber{H12d[広島]3456}
+<br>
+% 整理番号（事件番号）を「平成12年(広島)第3456号損害賠償請求事件」という書式で表示します。
+\idcodenumber{H12(広島)3456:損害賠償請求事件}
+</code>
+</pre>
+
+<h4 id="\subject"><code>\subject[オプション]{引数1},\Sub[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>題目を幅を広げて表示する関数です。
+<p>"<code>\Sub[オプション]{引数1}</code>"は、"<code>\subject[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>題目を左寄せで表示します。</dd>
+<dt><code>c</code></dt><dd>題目を中央寄せで表示します。</dd>
+<dt><code>r</code></dt><dd>題目を右寄せで表示します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>題目を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「主文」を、幅を広げて中央寄せで表示する。
+\subject{主文}
+<br>
+% 「附属書類」を、幅を広げて中央寄せで表示する。
+\subject{附属書類}
+</code>
+</pre>
+
+<h4 id="\Subject"><code>\Subject[オプション]{引数1},\SUB[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>題目を150%の大きさで幅を広げて表示する関数です。
+<p>別紙目録の標題を表示する場合などに使います。
+<p>"<code>\SUB[オプション]{引数1}</code>"は、"<code>\Subject[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>l</code></dt><dd>題目を左寄せで表示します。</dd>
+<dt><code>c</code></dt><dd>題目を中央寄せで表示します。</dd>
+<dt><code>r</code></dt><dd>題目を右寄せで表示します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>題目を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「当事者目録」を、150%の大きさで幅を広げて中央寄せで表示する。
+\Subject{当事者目録}
+<br>
+% 「物件目録」を、150%の大きさで幅を広げて中央寄せで表示する。
+\Subject{物件目録}
+</code>
+</pre>
+
+<h4 id="\today"><code>\today[オプション]</code></h4>
+<h5>機能</h5>
+<p>今日又はその前後の日を表示するコマンドです。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>ずらす日数を整数で指定します。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 昨日を表示します。
+\today[-1]
+<br>
+% 今日を表示します。
+\today
+<br>
+% 明日を表示します。
+\today[+1]
+</code>
+</pre>
+
+<h4 id="\today*"><code>\today*[オプション]</code></h4>
+<h5>機能</h5>
+<p>今日又はその前後の日を表示するコマンドです。
+<p>"<code>\today[オプション]</code>"とほぼ同じですが、数字を常に2桁幅で表示します。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>ずらす日数を指定します。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 昨日を、数字を常に2桁幅で表示します。
+\today*[-1]
+<br>
+% 今日を、数字を常に2桁幅で表示します。
+\today*
+<br>
+% 明日を、数字を常に2桁幅で表示します。
+\today*[+1]
+</code>
+</pre>
+
+<h4 id="\arrangedate"><code>\arrangedate[オプション]{引数1},\Ada[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>"<code>\arrangedate[オプション]{引数1}</code>"は、"<code>\Ada[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>ずらす日数を指定します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>年月日を"<code>西暦年.月.日</code>"又は"<code>元号イニシャル年.月.日</code>"で指定します。
+<p>1桁の数値は頭に"<code>0</code>"を付けて、1桁表記に出来ます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「平成2年3月3日」を表示します。
+\arrangedate[オプション][-1]{H02,03,04}
+<br>
+% 「平成2年3月3日」を表示します。
+\和暦\arrangedate[オプション][-1]{1990,03,04}
+<br>
+% 「1990年3月3日」を表示します。
+\西暦\arrangedate[オプション][-1]{H02,03,04}
+</code>
+</pre>
+
+<h4 id="\arrangedate*"><code>\arrangedate*[オプション]{引数1},\Ada*[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>"<code>\arrangedate*[オプション]{引数1}</code>"とほぼ同じですが、数字を常に2桁幅で表示します。
+<p>"<code>\Ada*[オプション]{引数1}</code>"は、"<code>\arrangedate*[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>ずらす日数を指定します。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>年月日を"<code>西暦年.月.日</code>"又は"<code>元号イニシャル年.月.日</code>"で指定します。
+<p>1桁の数値は頭に"<code>0</code>"を付けて、1桁表記に出来ます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 「平成2年3月3日」を、数字を常に2桁幅で表示します。
+\arrangedate*[オプション][-1]{H02,03,04}
+<br>
+% 「平成2年3月3日」を、数字を常に2桁幅で表示します。
+\和暦\arrangedate[オプション][-1]{1990,03,04}
+<br>
+% 「1990年3月3日」を、数字を常に2桁幅で表示します。
+\西暦\arrangedate[オプション][-1]{H02,03,04}
+</code>
+</pre>
+
+<h4 id="\westerncalender"><code>\westerncalender</code></h4>
+<h5>機能</h5>
+<p>西暦を使います。
+<p>"<code>\today</code>"や"<code>\arrangedate</code>"などの表記に影響します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 西暦を使います。
+\westerncalender
+</code>
+</pre>
+
+<h4 id="\japanesecalender"><code>\japanesecalender</code></h4>
+<h5>機能</h5>
+<p>和暦を使います。
+<p>"<code>\today</code>"や"<code>\arrangedate</code>"などの表記に影響します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 和暦を使います。
+\japanesecalender
+</code>
+</pre>
+
+<h4 id="\doublecalender"><code>\doublecalender</code></h4>
+<h5>機能</h5>
+<p>西暦と和暦を併記します。
+<p>"<code>\today</code>"や"<code>\arrangedate</code>"などの表記に影響します。
+<h5>使用例</h5>
+<pre>
+<code>
+% 西暦と和暦を併記します。
+\doublecalender
+</code>
+</pre>
+
+<h4 id="\blankvskip"><code>\blankvskip{引数1}</code></h4>
+<h5>機能</h5>
+<p>記入欄の改行幅の調整幅を設定します。
+<h5>引数1</h5>
+<p>調整幅を数値（小数可）で指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 0.5行空けて、日付を空欄にする。
+\blankvskip{0.5}
+\date{-s}
+</code>
+</pre>
+
+<h4 id="\senderstamp"><code>\senderstamp[オプション]</code></h4>
+<h5>機能</h5>
+<p>差出人のスタンプ（記名）を保持するコマンドです。
+<p>デジタル化した会社のゴム印をイメージしています。
+<p>"<code>\sender{s}</code>"や"<code>\senders{{s}}</code>"を表示されます。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(文字列)</code></dt><dd>表示を動的に変えることができる部分です。</dd>
+</dl>
+</p>
+<h5>使用例</h5>
+<pre>
+<code>
+% 差出人のスタンプを設定する。
+\newcommand{\senderstamp}[1]{
+  \begin{flushright}
+  #1\\
+  〒\zipnumber{123-4567}東京都東京市東京8番9号\\
+  東京太郎株式会社\\
+  代表取締役東京太郎
+  \end{flushright}
+}
+</code>
+</pre>
+
+<h4 id="\name"><code>\name[オプション]{引数1},\Nam[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>名前を均等割付けして表示するコマンドです。
+<p>"<code>\Nam[オプション]{引数1}</code>"は、"<code>\name[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>均等割付けの幅を数値で指定する。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>法人の場合は、法人名をそのまま指定してください。
+<p>自然人の場合は、名字と名前の間を"<code>/</code>"で区切って指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 法人を10文字で表示します。
+\name[10]{東京太郎株式会社}
+<br>
+% 自然人を表示します。
+\name{東京/太郎}
+</code>
+</pre>
+
+<h4 id="\Name"><code>\Name[オプション]{引数1},\NAM[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>名前を均等割付けして表示するコマンドです。
+<p>"<code>\name</code>"とほぼ同様ですが、文字を"<code>\large</code>"で表示します。
+<p>主に宛名を表示する場合に使います。
+<p>"<code>\NAM[オプション]{引数1}</code>"は、"<code>\Name[オプション]{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>均等割付けの幅を数値で指定する。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>法人の場合は、法人名をそのまま指定してください。
+<p>自然人の場合は、名字と名前の間を"<code>/</code>"で区切って指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 法人を10文字で表示します。
+\Name[10]{東京太郎株式会社}
+<br>
+% 自然人を表示します。
+\Name{東京/太郎}
+</code>
+</pre>
+
+<h4 id="\minustodash"><code>\minustodash{引数1},\Mtd{引数1}</code></h4>
+<h5>機能</h5>
+<p>文字列に含まれる半角マイナスをダッシュに変換します。
+<p>半角マイナスがそのまま短すぎるときに使います。
+<p>"<code>\sender,\senders</code>"、"<code>\person</code>"、"<code>\address</code>"、"<code>zipnumber</code>"、"<code>telnumber</code>"、"<code>faxnumber</code>"で使われています。
+<p>"<code>\Mtd{引数1}</code>"は、"<code>\minustodash{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>文字列を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% マイナスをダッシュに変換する。
+契約番号\Mtd{123-456-789}
+</code>
+</pre>
+
+<h4 id="\address"><code>\address[オプション]{引数1},\Add[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>住所を表示します。
+<p>半角マイナスはダッシュに変換されます。
+<p>"<code>\Add{引数1}</code>"は、"<code>\address{引数1}</code>"の短縮形です。
+<h5>オプション</h5>
+<p>
+<dl>
+<dt><code>(数値)</code></dt><dd>郵便番号と住所の間の幅を数値で指定する。</dd>
+</dl>
+</p>
+<h5>引数1</h5>
+<p>住所を指定してください。
+<p>コロンで区切って、郵便番号を指定することも出来ます。
+<h5>使用例</h5>
+<pre>
+<code>
+% 住所を表示する。
+\address{東京都東京市東京8-9}
+<br>
+% 郵便番号付きで住所を表示する。
+\address{123-4567:東京都東京市東京8-9}
+<br>
+% 郵便番号と住所の間を2文字空けて表示する。
+\address[2]{123-4567:東京都東京市東京8-9}
+</code>
+</pre>
+
+<h4 id="\zipnumber"><code>\zipnumber{引数1},\Zip{引数1}</code></h4>
+<h5>機能</h5>
+<p>郵便番号を表示します。
+<p>半角マイナスはダッシュに変換されます。
+<p>"<code>\Zip{引数1}</code>"は、"<code>\zipnumber{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>郵便番号を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 郵便番号を表示する。
+〒\zipnumber{123-4567}
+</code>
+</pre>
+
+<h4 id="\telnumber"><code>\telnumber{引数1},\Tel{引数1}</code></h4>
+<h5>機能</h5>
+<p>電話番号を表示します。
+<p>半角マイナスはダッシュに変換されます。
+<p>"<code>\Tel{引数1}</code>"は、"<code>\telnumber{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>電話番号を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% 電話番号を表示する。
+TEL\telnumber{012-345-6789}
+</code>
+</pre>
+
+<h4 id="\faxnumber"><code>\faxnumber{引数1},\Fax{引数1}</code></h4>
+<h5>機能</h5>
+<p>ファックス番号を表示します。
+<p>半角マイナスはダッシュに変換されます。
+<p>"<code>\Fax{引数1}</code>"は、"<code>\faxnumber{引数1}</code>"の短縮形です。
+<h5>引数1</h5>
+<p>ファックス番号を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% ファックス番号を表示する。
+FAX\telnumber{012-345-6780}
+</code>
+</pre>
+
+<h3 id="オプションによる修正（kian-opti.sty）">オプションによる修正（kian-opti.sty）</h3>
+<p>kian-page.sty、kian-sect.sty、kian-titl.styは、特別なファイルを読み込みません。graphicx.styを読み込まないため、括弧付きカタカナなどの文字を合成する際、文字サイズを微調整できず、無理矢理に合成しています。kian-opti.styでは、graphicx.styを読み込み、"<code>\scalebox</code>"を使って、文字サイズを微調整し、文字を合成しています。
+<p>また、kian-page.sty、kian-sect.sty、kian-titl.styは、文字コード（Shift_JIS、UTF-8など）に依存しないように作ってあります。そのため、漢字を使った名前のコマンドは設定されていません。kian-opti.styでは、漢字を使った自然な名前のコマンドに修正しています。
+
+<h4 id="\textslbox"><code>\textslbox[オプション]{引数1}</code></h4>
+<h5>機能</h5>
+<p>文字列を傾けます。
+<h5>オプション</h5>
+<p>(数値):5度単位、最大45度の範囲で、角度を指定してします。デフォルトは15度です。
+<h5>引数1</h5>
+<p>傾ける文字列を指定してください。
+<h5>使用例</h5>
+<pre>
+<code>
+% そのページだけヘッダに「別紙」と入れます。
+\textslbox[]{傾けます。}
+</code>
+</pre>
+
+<h4 id="\別紙"><code>\別紙</code></h4>
+<h5>機能</h5>
+<p>"<code>\anothersheet</code>"と全く同じです。
+<h5>使用例</h5>
+<pre>
+<code>
+% そのページだけヘッダに「別紙」と入れます。
+\別紙
+</code>
+</pre>
+
+<h4 id="\西暦"><code>\西暦</code></h4>
+<h5>機能</h5>
+<p>"<code>\westerncalender</code>"と全く同じです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 西暦を使います。
+\西暦
+</code>
+</pre>
+
+<h4 id="\和暦"><code>\和暦</code></h4>
+<h5>機能</h5>
+<p>"<code>\japanesecalender</code>"と全く同じです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 和暦を使います。
+\和暦
+</code>
+</pre>
+
+<h4 id="\両暦"><code>\両暦</code></h4>
+<h5>機能</h5>
+<p>"<code>\doublecalender</code>"と全く同じです。
+<h5>使用例</h5>
+<pre>
+<code>
+% 西暦と和暦を「西暦（和暦）」の形式で併記します。
+\両暦
+</code>
+</pre>
+
+<h3 id="サンプルコード">サンプルコード</h3>
+<h4 id="陳述書">陳述書</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+<a href="#\blankvskip">\blankvskip</a>{.5}
+
+\begin{document}
+
+<a href="#\title">\title</a>{陳述書}
+
+<a href="#\date">\date</a>{-b}
+
+<a href="#\sender">\sender</a>{-b}
+
+<a href="#\maketitle">\maketitle</a>
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+私は，赤白小学校の校長です。
+
+平成12年度の運動会について，ご説明いたします。
+
+…
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="判決">判決</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+% 当事者の住所は2文字だけ字下げする
+<a href="#\personaddresshlength">\personaddresshlength</a>{2}{}{}{}{}{}
+% 当事者の肩書付き名前は10文字だけ字下げする
+<a href="#\personnamehlength">\personnamehlength</a>{10}{}{}{}
+% セクションZの上に間を空けない
+<a href="#\separateX">\separateZ</a>{0}
+% セクションAの上に間を空けない
+<a href="#\separateX">\separateA</a>{0}
+% セクションBの上に間を空けない
+<a href="#\separateX">\separateB</a>{0}
+% 題目（判決，主文等）の幅は10文字
+<a href="#\subjecthlength">\subjecthlength</a>{}{10}
+% タイトルは事件番号と標題（判決）だけ
+<a href="#\maketitlecontents">\maketitlecontents</a>{it}
+
+\begin{document}
+
+<a href="#\idcodes">\idcodes</a>{
+  {平成13年3月4日判決言渡:同日原本領収:裁判所書記官}
+  [o]{H12(ワ)345:優勝旗引渡請求事件}
+  {口頭弁論終結日:平成28年6月23日}
+}
+
+% タイトルは普通の文字サイズ
+<a href="#\title">\title</a>[n]{判決}
+
+<a href="#\maketitle">\maketitle</a>
+
+<a href="#\person">\person</a>{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  原告:運動会赤組\\同代表者応援団長:赤色/壱郎\\
+  同訴訟代理人/弁護士:赤色/弐子\\同 :赤色/参郎\\
+}
+
+<a href="#\person">\person</a>{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校校長室\\
+  被告:校長/太郎
+}
+
+<a href="#\person">\person</a>{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  被告:運動会白組\\同代表者応援団長:白色/壱郎
+}
+
+<a href="#\sectionX">\sectionZ</a>{主文}
+
+% 全体の字下げを5文字にする
+<a href="#\downX">\downX</a>{5}
+
+<a href="#\sectionX*">\sectionB*</a>{}被告らは，原告に対し，連帯して優勝旗を引き渡せ。
+
+<a href="#\sectionX*">\sectionB*</a>{}訴訟費用は，被告らの負担とする。
+
+% 全体の字下げをデフォルトに戻す
+<a href="#\downX">\downX</a>{d}
+
+<a href="#\sectionX">\sectionZ</a>{事実及び理由}
+
+<a href="#\sectionX">\sectionA</a>{請求}
+
+<a href="#\sectionX*">\sectionB*</a>{}被告らは，原告に対し，連帯して優勝旗を引き渡せ。
+
+<a href="#\sectionX*">\sectionB*</a>{}訴訟費用は，被告らの負担とする。
+
+<a href="#\sectionX">\sectionA</a>{事案の概要}
+
+<a href="#\sectionX">\sectionB</a>{事案の要旨}
+
+本件は，原告が，
+赤白小学校平成12年度運動会において優勝したとして，
+優勝旗の引渡しを求めたものである。
+
+<a href="#\sectionX">\sectionB</a>{前提事実}
+
+<a href="#\sectionX">\sectionC</a>{当事者}
+
+…
+
+<a href="#\sectionX">\sectionC</a>{平成11年度の運動会}
+
+…
+
+<a href="#\sectionX">\sectionC</a>{平成12年度の運動会}
+
+…
+
+<a href="#\sectionX">\sectionB</a>{争点及びこれに対する当事者の主張}
+
+…
+
+<a href="#\sectionX">\sectionA</a>{当裁判所の判断}
+
+…
+
+% 空行を1行だけ入れる
+<a href="#\vspaceonkian">\vspaceonkian</a>{1}
+
+<a href="#\person">\person</a>{赤白小学校裁判所//裁判官:裁判/花子}
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="示談書">示談書</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+\renewcommand{<a href="#\postsectionX">\postsectionAname</a>}{条}
+
+\begin{document}
+
+<a href="#\title">\title</a>{示談書}
+
+<a href="#\date">\date</a>[l]{-b}
+
+<a href="#\maketitle">\maketitle</a>[t]
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+赤組（以下「甲」という。）と白組（以下「乙」という。）は，
+平成12年度の運動会に関し，次のとおり示談した。
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{1}
+
+<a href="#\sectionX*">\sectionA*</a>{（結果）}
+
+甲と乙は，平成12年度の運動会において，赤組が優勝したことを確認する。
+
+<a href="#\sectionX*">\sectionA*</a>{（引渡義務）}
+
+乙は，甲に対し，平成13年5月6日限り，優勝旗を引き渡す。
+
+<a href="#\stateX">\stateZ</a>\noindent
+…
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}<a href="#\printdate">\printdate</a>
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{1}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}\noindent{甲}<a href="#~">~</a><a href="#\underlinehspaceonkian">\underlinehspaceonkian</a>[住所]{30}
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}\noindent<a href="#~">~</a><a href="#~">~</a><a href="#\underlinehspaceonkian">\underlinehspaceonkian</a>[氏名,印]{30}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{1}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}\noindent{乙}<a href="#~">~</a><a href="#\underlinehspaceonkian">\underlinehspaceonkian</a>[住所]{30}
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}\noindent<a href="#~">~</a><a href="#~">~</a><a href="#\underlinehspaceonkian">\underlinehspaceonkian</a>[氏名,印]{30}
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="計算書">計算書</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+\begin{document}
+
+<a href="#\title">\title</a>{計算書}
+
+<a href="#\maketitle">\maketitle</a>
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+\noindent
+児童会費の積立金
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{1}
+
+\begin{tabular}{|c|r|r|r|l|}
+\hline
+日付&収入&支出&残金&備考\\
+\hline
+H12.02.03&10,000&&10,000&2月分会費\\
+H12.03.03&&1,000&9,000&サインペン\\
+…&…&…&…&…\\
+\hline
+\end{tabular}
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="起訴状">起訴状</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+% 用紙の上を広く使う
+<a href="#\narrowhead">\narrowhead</a>
+
+\begin{document}
+
+% 事件番号は右寄せ
+<a href="#\idcodes">\idcodes</a>{[r]{H12[検]345}}
+
+<a href="#\title">\title</a>{起訴状}
+
+<a href="#\date">\date</a>{<a href="#\today">\today</a>[0]}
+
+<a href="#\receivers">\receivers</a>{{:赤白小学校裁判所:殿}}
+
+<a href="#\senders">\senders</a>{{赤白小学校検察庁//検察官検事::}}
+
+% タイトルを次のとおり表示する
+%  事件番号 → 0.75行 → 標題（起訴状） → 0.75行
+%  → 日付 → 0.5行 → 裁判所 → 0.5行 → 検察官名
+<a href="#\maketitle">\maketitle</a>[i+++t+++d++r++s]
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+下記被告事件につき公訴を提起する。
+
+\hfil{記}
+
+% 肩書は左寄せ
+<a href="#\person">\person</a>[l]{
+  D=赤白市赤白町赤白/8丁目9番1号\\
+  H=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  J=小学生\\
+  N=在宅:赤色/壱郎\\
+  B=平成元年1月1日
+}
+
+% 題目（公訴事実，罪名及び罰条）の幅を10文字にする
+<a href="#\subjecthlength">\subjecthlength</a>{}{10}
+
+<a href="#\sectionX">\sectionZ</a>{公訴事実}
+
+被告人は，正当な理由がないのに，
+
+<a href="#\sectionX*">\sectionA*</a>{}平成12年3月4日午後10時11分頃，赤白小学校2階ろう下を走り，
+
+<a href="#\sectionX*">\sectionA*</a>{}平成12年3月5日午後12時13分頃，赤白小学校3階ろう下を走り，
+
+<a href="#\stateX">\stateZ</a>\noindent
+通行人と衝突する危険を発生させたものである。
+
+<a href="#\sectionX">\sectionZ</a>{罪名及び罰条}
+
+% 箇条書きの項目の幅を20文字にする
+<a href="#\downY">\downY</a>{20}
+
+<a href="#\itemonkian">\itemonkian</a>{赤白小学校校則違反}同規則10条
+
+% 箇条書きの項目の幅をデフォルトに戻す
+<a href="#\downY">\downY</a>{d}
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="申入書">申入書</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+% 発信人につき，
+% 全体の字下げを24文字，肩書を2文字，
+% 肩書と名前の間を1文字，名前を7文字にする
+<a href="#\senderhlength">\senderhlength</a>{24}{2}{1}{7}
+% タイトルを次のとおり表示する
+%  整理番号 → 日付 → 0.75行 → 標題（申入書） → 0.75行
+%  → 受信人 → 0.5行 → 発信人
+<a href="#\maketitlecontents">\maketitlecontents</a>{id+++t+++r++s}
+
+\begin{document}
+
+% 整理番号は右寄せで，"発"は括弧で囲まない
+<a href="#\idcodes">\idcodes</a>{[r]{児童会[発]345}}
+
+<a href="#\title">\title</a>{申入書}
+
+% 年を"西暦（和暦）"で表示する
+<a href="#\両暦">\両暦</a>
+<a href="#\date">\date</a>{<a href="#\today">\today</a>[0]}
+
+<a href="#\receivers">\receivers</a>{{%
+  % 行間を25%だけ詰める
+  X=\addtolength{\baselineskip}{-.25\baselineskip}\\
+  赤白小学校//校長:校長/太郎:殿
+}}
+
+<a href="#\senders">\senders</a>{{
+  % 行間を25%だけ詰める
+  X=\addtolength{\baselineskip}{-.25\baselineskip}\\
+  赤白小学校児童会//会長:会長/次郎\\
+  （公印省略）
+}}
+
+<a href="#\maketitle">\maketitle</a>
+
+<a href="#\sectionX">\sectionZ</a>{}
+
+<a href="#\sectionX">\sectionA</a>{申入れの趣旨}
+
+一輪車を購入していただきたい。
+
+<a href="#\sectionX">\sectionA</a>{申入れの理由}
+
+本校には一輪車がありませんが，
+下記のとおり，一輪車は非常に優れた遊具です。
+
+\hfil{記}
+
+% セクションBを"a），b）…"で表示する。
+\renewcommand{<a href="#\printsectionX">\printsectionB</a>}[1]{\alph{<a href="#\c@sectionX">sectionB</a>}）}
+
+<a href="#\sectionX*">\sectionB*</a>{}良い運動になります。
+
+<a href="#\sectionX*">\sectionB*</a>{}バランス感覚が養われます。
+
+<a href="#\sectionX*">\sectionB*</a>{}努力することが学べます。
+
+…
+
+<a href="#\stateX">\stateZ</a>
+このような優れた遊具を購入しない手はありません。
+
+したがって，
+一輪車を購入していただきたく，申し入れるしだいです。
+
+% セクションBの番号を標準に戻す
+\let<a href="#\printsectionX">\printsectionB</a><a href="#\normalprintsectionX">\normalprintsectionB</a>
+
+\end{document}
+</code>
+</pre>
+
+<h4 id="訴状">訴状</h4>
+<pre>
+<code>
+<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt]{jsarticle}
+%<a href="#\documentclass">\documentclass</a>[a4paper,papersize,12pt,uplatex]{jsarticle}
+<a href="#\usepackage">\usepackage</a>{kian}
+
+\begin{document}
+
+<a href="#\idcodes">\idcodes</a>{
+  [o]{H12(ワ)345:優勝旗引渡請求事件\\原告:運動会赤組:\\被告:校長/太郎:1}
+}
+
+<a href="#\title">\title</a>{訴状}
+
+<a href="#\date">\date</a>{<a href="#\today">\today</a>[0]}
+
+<a href="#\receivers">\receivers</a>{
+  [n]{:赤白小学校裁判所:御中}
+}
+
+<a href="#\senders">\senders</a>{
+  [0.5]{原告訴訟代理人/弁護士:赤色/弐子\\同*:赤色/参郎}
+}
+
+<a href="#\maketitle">\maketitle</a>
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}
+
+<a href="#\person">\person</a>{
+  123-4567:赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  原告:運動会赤組\\上記代表者応援団長:赤色/壱郎
+}
+
+<a href="#\person">\person</a>{
+  123-4567:赤白市赤白町赤白/8丁目9番1号/赤白小学校//赤色法律事務所（送達場所）\\
+  上記訴訟代理人/弁護士:赤色/弐子\\同:赤色/参郎\\
+  T=012-345-6789/012-345-6780
+}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}
+
+<a href="#\person">\person</a>{
+  123-4567:赤白市赤白町赤白/8丁目9番1号/赤白小学校校長室\\
+  被告:校長/太郎
+}
+
+<a href="#\person">\person</a>{
+  123-4567:赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  被告:運動会白組\\上記代表者応援団長:白色/壱郎
+}
+
+<a href="#\vspaceonkian">\vspaceonkian</a>{.5}
+
+\noindent
+優勝旗引渡請求事件\\
+<a href="#\hspaceonkian">\hspaceonkian</a>{2}<a href="#\itemonkian*">\itemonkian*</a>[7,10]{訴訟物の価額}{10万0000円}\\
+<a href="#\hspaceonkian">\hspaceonkian</a>{2}<a href="#\itemonkian*">\itemonkian*</a>[7,10]{ちょう用印紙額}{1000円}
+
+<a href="#\sectionX*">\sectionZ*</a>{}
+
+<a href="#\sectionX">\sectionA</a>{請求の趣旨}
+
+<a href="#\sectionX*">\sectionB*</a>{}被告らは，原告に対し，連帯して優勝旗を引き渡せ。
+
+<a href="#\sectionX*">\sectionB*</a>{}訴訟費用は，被告らの負担とする。
+
+<a href="#\stateX">\stateA</a>\noindent
+との判決を求める。
+
+<a href="#\sectionX">\sectionA</a>{請求の原因}
+
+<a href="#\sectionX">\sectionB</a>{平成11年度の運動会}
+
+<a href="#\sectionX">\sectionC</a>{}
+
+赤白小学校の平成11年度の運動会は，白組が優勝した。
+
+<a href="#\sectionX">\sectionC</a>{}
+
+その閉会式において，優勝旗は，大会長である被告校長太郎から，白組応援団長に授与された。
+
+<a href="#\sectionX">\sectionB</a>{平成12年度の運動会}
+
+<a href="#\sectionX">\sectionC</a>{}
+
+平成12年度の運動会の開会式において，白組は優勝旗を返還しなかった。
+
+<a href="#\sectionX">\sectionC</a>{}
+
+赤白小学校の平成12年度の運動会は，赤組が優勝した。
+
+<a href="#\sectionX">\sectionC</a>{}
+
+白組は優勝旗を返還しなかったため，
+優勝旗が，大会長である被告校長太郎から，赤組応援団長に授与されることはなかった。
+
+<a href="#\sectionX">\sectionB</a>{まとめ}
+
+よって，
+原告は，被告らに対し，連帯して優勝旗を引渡しを求めるものである。
+
+<a href="#\sectionX">\sectionA</a>{関連事実}
+
+通常，訴状に事件番号の表示はありませんが，気にしないでください。
+
+<a href="#\sectionX">\sectionZ</a>{証拠方法}
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian">\itemonkian</a>{甲第1号証}赤白小学校運動会開催規則
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian">\itemonkian</a>{甲第2号証}赤白小学校平成11年度運動会成績表
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian">\itemonkian</a>{甲第3号証}赤白小学校平成12年度運動会成績表
+
+<a href="#\itemonkian">\itemonkian</a>{…}{}
+
+<a href="#\sectionX">\sectionZ</a>{附属書類}
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian*">\itemonkian*</a>{訴状副本}{2通}
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian*">\itemonkian*</a>{甲号証の写し}{各3通}
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian*">\itemonkian*</a>{資格証明書}{2通}
+
+<a href="#\sectionX*">\sectionB*</a>{}<a href="#\itemonkian*">\itemonkian*</a>{訴訟委任状}{1通}
+
+\end{document}
+</code>
+</pre>
+
