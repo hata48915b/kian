@@ -1,0 +1,104 @@
+\documentclass[a4paper,papersize,12pt]{jsarticle}
+%\documentclass[a4paper,papersize,12pt,uplatex]{jsarticle}
+\usepackage{kian}
+
+% 当事者の住所は2文字だけ字下げする
+\personaddresshlength{2}{}{}{}{}{}
+% 当事者の肩書付き名前は10文字だけ字下げする
+\personnamehlength{10}{}{}{}
+% セクションZの上に間を空けない
+\separateZ{0}
+% セクションAの上に間を空けない
+\separateA{0}
+% セクションBの上に間を空けない
+\separateB{0}
+% 題目（判決，主文等）の幅は10文字
+\subjecthlength{}{10}
+% タイトルは事件番号と標題（判決）だけ
+\maketitlecontents{it}
+
+\begin{document}
+
+\idcodes{
+  {平成13年3月4日判決言渡:同日原本領収:裁判所書記官}
+  [o]{H12(ワ)345:優勝旗引渡請求事件}
+  {口頭弁論終結日:平成28年6月23日}
+}
+
+% タイトルは普通の文字サイズ
+\title[n]{判決}
+
+\maketitle
+
+\person{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  原告:運動会赤組\\同代表者応援団長:赤色/壱郎\\
+  同訴訟代理人/弁護士:赤色/弐子\\同 :赤色/参郎\\
+}
+
+\person{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校校長室\\
+  被告:校長/太郎
+}
+
+\person{
+  a=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  被告:運動会白組\\同代表者応援団長:白色/壱郎
+}
+
+\sectionZ{主文}
+
+% 全体の字下げを5文字にする
+\downX{5}
+
+\sectionB*{}被告らは，原告に対し，連帯して優勝旗を引き渡せ。
+
+\sectionB*{}訴訟費用は，被告らの負担とする。
+
+% 全体の字下げをデフォルトに戻す
+\downX{d}
+
+\sectionZ{事実及び理由}
+
+\sectionA{請求}
+
+\sectionB*{}被告らは，原告に対し，連帯して優勝旗を引き渡せ。
+
+\sectionB*{}訴訟費用は，被告らの負担とする。
+
+\sectionA{事案の概要}
+
+\sectionB{事案の要旨}
+
+本件は，原告が，
+赤白小学校平成12年度運動会において優勝したとして，
+優勝旗の引渡しを求めたものである。
+
+\sectionB{前提事実}
+
+\sectionC{当事者}
+
+…
+
+\sectionC{平成11年度の運動会}
+
+…
+
+\sectionC{平成12年度の運動会}
+
+…
+
+\sectionB{争点及びこれに対する当事者の主張}
+
+…
+
+\sectionA{当裁判所の判断}
+
+…
+
+% 空行を1行だけ入れる
+\vspaceonkian{1}
+
+\person{赤白小学校裁判所//裁判官:裁判/花子}
+
+\end{document}

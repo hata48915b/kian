@@ -1,0 +1,73 @@
+\documentclass[a4paper,papersize,12pt]{jsarticle}
+%\documentclass[a4paper,papersize,12pt,uplatex]{jsarticle}
+\usepackage{kian}
+
+% 発信人につき，
+% 全体の字下げを24文字，肩書を2文字，
+% 肩書と名前の間を1文字，名前を7文字にする
+\senderhlength{24}{2}{1}{7}
+% タイトルを次のとおり表示する
+%  整理番号 → 日付 → 0.75行 → 標題（申入書） → 0.75行
+%  → 受信人 → 0.5行 → 発信人
+\maketitlecontents{id+++t+++r++s}
+
+\begin{document}
+
+% 整理番号は右寄せで，"発"は括弧で囲まない
+\idcodes{[r]{児童会[発]345}}
+
+\title{申入書}
+
+% 年を"西暦（和暦）"で表示する
+\両暦
+\date{\today[0]}
+
+\receivers{{%
+  % 行間を25%だけ詰める
+  X=\addtolength{\baselineskip}{-.25\baselineskip}\\
+  赤白小学校//校長:校長/太郎:殿
+}}
+
+\senders{{
+  % 行間を25%だけ詰める
+  X=\addtolength{\baselineskip}{-.25\baselineskip}\\
+  赤白小学校児童会//会長:会長/次郎\\
+  （公印省略）
+}}
+
+\maketitle
+
+\sectionZ{}
+
+\sectionA{申入れの趣旨}
+
+一輪車を購入していただきたい。
+
+\sectionA{申入れの理由}
+
+本校には一輪車がありませんが，
+下記のとおり，一輪車は非常に優れた遊具です。
+
+\hfil{記}
+
+% セクションBを"a），b）…"で表示する。
+\renewcommand{\printsectionB}[1]{\alph{sectionB}）}
+
+\sectionB*{}良い運動になります。
+
+\sectionB*{}バランス感覚が養われます。
+
+\sectionB*{}努力することが学べます。
+
+…
+
+\stateZ
+このような優れた遊具を購入しない手はありません。
+
+したがって，
+一輪車を購入していただきたく，申し入れるしだいです。
+
+% セクションBの番号を標準に戻す
+\let\printsectionB\normalprintsectionB
+
+\end{document}

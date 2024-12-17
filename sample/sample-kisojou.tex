@@ -1,0 +1,65 @@
+\documentclass[a4paper,papersize,12pt]{jsarticle}
+%\documentclass[a4paper,papersize,12pt,uplatex]{jsarticle}
+\usepackage{kian}
+
+% 用紙の上を広く使う
+\narrowhead
+
+\begin{document}
+
+% 事件番号は右寄せ
+\idcodes{[r]{H12[検]345}}
+
+\title{起訴状}
+
+\date{\today[0]}
+
+\receivers{{:赤白小学校裁判所:殿}}
+
+\senders{{赤白小学校検察庁//検察官検事::}}
+
+% タイトルを次のとおり表示する
+%  事件番号 → 0.75行 → 標題（起訴状） → 0.75行
+%  → 日付 → 0.5行 → 裁判所 → 0.5行 → 検察官名
+\maketitle[i+++t+++d++r++s]
+
+\sectionZ{}
+
+下記被告事件につき公訴を提起する。
+
+\hfil{記}
+
+% 肩書は左寄せ
+\person[l]{
+  D=赤白市赤白町赤白/8丁目9番1号\\
+  H=赤白市赤白町赤白/8丁目9番1号/赤白小学校\\
+  J=小学生\\
+  N=在宅:赤色/壱郎\\
+  B=平成元年1月1日
+}
+
+% 題目（公訴事実，罪名及び罰条）の幅を10文字にする
+\subjecthlength{}{10}
+
+\sectionZ{公訴事実}
+
+被告人は，正当な理由がないのに，
+
+\sectionA*{}平成12年3月4日午後10時11分頃，赤白小学校2階ろう下を走り，
+
+\sectionA*{}平成12年3月5日午後12時13分頃，赤白小学校3階ろう下を走り，
+
+\stateZ\noindent
+通行人と衝突する危険を発生させたものである。
+
+\sectionZ{罪名及び罰条}
+
+% 箇条書きの項目の幅を20文字にする
+\downY{20}
+
+\itemonkian{赤白小学校校則違反}同規則10条
+
+% 箇条書きの項目の幅をデフォルトに戻す
+\downY{d}
+
+\end{document}
